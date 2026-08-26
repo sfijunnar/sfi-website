@@ -2,769 +2,545 @@
 <html lang="mr">
 
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>SFI | Students' Federation of India</title>
 
-
 <style>
 
-/* =====================================================
-   GLOBAL
-===================================================== */
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
-:root {
-
-    --red: #e50914;
-    --dark-red: #a00000;
-    --black: #070707;
-    --dark: #111111;
-    --white: #ffffff;
-    --light: #f5f5f5;
-    --gray: #777;
-
-}
-
 body {
-
-    font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-    background: var(--black);
-
-    color: white;
-
+    width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #050505;
+    color: #fff;
+}
 
+img {
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+a {
+    text-decoration: none;
 }
 
 
-/* =====================================================
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+    --red: #e50914;
+    --red2: #ff3030;
+    --dark: #050505;
+    --dark2: #101010;
+    --dark3: #181818;
+    --white: #ffffff;
+    --gray: #999;
+}
+
+
+/* =========================================================
    PARTICLES
-===================================================== */
+========================================================= */
 
 #particles {
-
     position: fixed;
-
     inset: 0;
-
-    z-index: -2;
-
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    overflow: hidden;
     pointer-events: none;
-
 }
 
 .particle {
-
     position: absolute;
-
     width: 3px;
-
     height: 3px;
-
-    background: #ff3030;
-
     border-radius: 50%;
-
-    box-shadow:
-    0 0 10px red;
-
-    opacity: 0.7;
-
+    background: red;
+    box-shadow: 0 0 10px red;
+    opacity: .5;
 }
 
 
-/* =====================================================
+/* =========================================================
    HEADER
-===================================================== */
+========================================================= */
 
 header {
-
     position: fixed;
-
     top: 0;
     left: 0;
-
     width: 100%;
-
-    height: 75px;
+    height: 72px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
-    padding:
-    0 6%;
+    padding: 0 6%;
 
-    background:
-    rgba(5,5,5,0.90);
+    background: rgba(5,5,5,.94);
+    backdrop-filter: blur(15px);
 
-    -webkit-backdrop-filter:
-    blur(15px);
+    border-bottom: 1px solid rgba(255,0,0,.25);
 
-    backdrop-filter:
-    blur(15px);
-
-    border-bottom:
-    1px solid
-    rgba(255,0,0,0.25);
-
-    z-index: 1000;
-
+    z-index: 9999;
 }
 
 
-/* =====================================================
+/* =========================================================
    LOGO
-===================================================== */
+========================================================= */
 
 .logo {
-
     display: flex;
-
     align-items: center;
-
-    gap: 12px;
-
-    text-decoration: none;
-
+    gap: 10px;
     color: white;
-
+    flex-shrink: 0;
 }
 
 .logo-circle {
-
     width: 45px;
-
     height: 45px;
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
+    border: 2px solid red;
     border-radius: 50%;
 
-    border:
-    2px solid #ff2020;
-
-    font-size: 19px;
-
-    font-weight: 900;
-
-    box-shadow:
-    0 0 10px red,
-    0 0 25px rgba(255,0,0,0.5);
-
-    animation:
-    logoPulse 2s infinite alternate;
-
-}
-
-@keyframes logoPulse {
-
-    from {
-
-        box-shadow:
-        0 0 8px red;
-
-    }
-
-    to {
-
-        box-shadow:
-        0 0 12px red,
-        0 0 35px red;
-
-    }
-
-}
-
-
-/* =====================================================
-   DESKTOP NAVIGATION
-===================================================== */
-
-.nav-menu {
-
     display: flex;
-
     align-items: center;
+    justify-content: center;
 
-    gap: 30px;
-
-    list-style: none;
-
-}
-
-.nav-menu a {
+    font-size: 16px;
+    font-weight: 900;
 
     color: white;
 
-    text-decoration: none;
+    box-shadow:
+        0 0 10px red,
+        0 0 25px rgba(255,0,0,.5);
 
-    font-size: 15px;
+    animation: logoGlow 2s infinite alternate;
+}
 
-    font-weight: bold;
+@keyframes logoGlow {
 
+    from {
+        box-shadow: 0 0 8px red;
+    }
+
+    to {
+        box-shadow:
+            0 0 15px red,
+            0 0 30px rgba(255,0,0,.5);
+    }
+}
+
+
+/* =========================================================
+   DESKTOP NAV
+========================================================= */
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.nav-menu a {
     position: relative;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    transition: .3s;
+}
 
-    transition: 0.3s;
-
+.nav-menu a:hover {
+    color: var(--red2);
 }
 
 .nav-menu a::after {
-
     content: "";
-
     position: absolute;
-
     left: 0;
-
-    bottom: -8px;
+    bottom: -7px;
 
     width: 0;
-
     height: 2px;
 
     background: red;
 
-    transition: 0.3s;
-
-}
-
-.nav-menu a:hover {
-
-    color: #ff3030;
-
+    transition: .3s;
 }
 
 .nav-menu a:hover::after {
-
     width: 100%;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    HAMBURGER
-===================================================== */
+========================================================= */
 
 .hamburger {
-
     display: none;
 
-    width: 42px;
+    width: 43px;
+    height: 43px;
 
-    height: 42px;
-
-    border:
-    1px solid
-    rgba(255,0,0,0.5);
-
+    border: 1px solid rgba(255,0,0,.5);
     border-radius: 8px;
 
-    cursor: pointer;
+    background: transparent;
 
     align-items: center;
-
     justify-content: center;
-
     flex-direction: column;
 
     gap: 5px;
 
+    cursor: pointer;
+
+    flex-shrink: 0;
 }
 
 .hamburger span {
-
-    display: block;
-
     width: 23px;
-
     height: 2px;
 
     background: white;
 
-    transition: 0.3s;
+    transition: .3s;
+}
 
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px,5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px,-5px);
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO
-===================================================== */
+========================================================= */
 
 .hero {
-
+    width: 100%;
     min-height: 100vh;
 
+    position: relative;
+
     display: flex;
-
-    justify-content: center;
-
     align-items: center;
+    justify-content: center;
 
     text-align: center;
 
-    position: relative;
-
     padding:
-    120px 20px 70px;
+        120px 20px
+        70px;
 
     background:
+        radial-gradient(
+            circle at center,
+            rgba(120,0,0,.45),
+            transparent 60%
+        );
 
-    radial-gradient(
-        circle at center,
-        rgba(130,0,0,0.4),
-        transparent 50%
-    );
-
+    overflow: hidden;
 }
-
-
-/* Hero circles */
-
-.hero::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 500px;
-
-    height: 500px;
-
-    border-radius: 50%;
-
-    border:
-    1px solid
-    rgba(255,0,0,0.25);
-
-    animation:
-    rotate 15s linear infinite;
-
-}
-
-.hero::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 700px;
-
-    height: 700px;
-
-    border-radius: 50%;
-
-    border:
-    1px solid
-    rgba(255,0,0,0.1);
-
-    animation:
-    rotateReverse 20s linear infinite;
-
-}
-
-@keyframes rotate {
-
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-
-}
-
-@keyframes rotateReverse {
-
-    from {
-        transform: rotate(360deg);
-    }
-
-    to {
-        transform: rotate(0deg);
-    }
-
-}
-
-
-/* =====================================================
-   HERO CONTENT
-===================================================== */
 
 .hero-content {
-
+    width: 100%;
+    max-width: 1000px;
     position: relative;
-
     z-index: 2;
-
 }
 
 
-/* =====================================================
-   SFI ANIMATION
-===================================================== */
+/* =========================================================
+   SFI HERO TITLE
+========================================================= */
 
 .sfi-title {
-
-    font-size:
-    clamp(
-        100px,
-        20vw,
-        240px
-    );
+    font-size: clamp(90px, 20vw, 240px);
 
     font-weight: 1000;
 
-    letter-spacing: 15px;
+    line-height: .9;
 
-    line-height: 0.9;
+    letter-spacing: clamp(5px, 2vw, 18px);
 
     background:
-
-    linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #ffffff 30%,
-        #ff3030 55%,
-        #a00000 100%
-    );
+        linear-gradient(
+            180deg,
+            white 0%,
+            white 30%,
+            #ff3030 60%,
+            #9d0000 100%
+        );
 
     -webkit-background-clip: text;
-
     background-clip: text;
 
     color: transparent;
 
     filter:
-    drop-shadow(0 0 15px red);
+        drop-shadow(0 0 10px red);
 
     animation:
-    titleReveal 2s ease,
-    titleGlow 2s infinite alternate;
-
+        titleIn 1.8s ease,
+        titleGlow 2s infinite alternate;
 }
 
-@keyframes titleReveal {
+@keyframes titleIn {
 
     from {
-
         opacity: 0;
-
-        transform:
-        scale(0.4);
-
-        letter-spacing:
-        80px;
-
+        transform: scale(.4);
+        letter-spacing: 70px;
     }
 
     to {
-
         opacity: 1;
-
-        transform:
-        scale(1);
-
-        letter-spacing:
-        15px;
-
+        transform: scale(1);
     }
-
 }
 
 @keyframes titleGlow {
 
     from {
-
-        filter:
-        drop-shadow(0 0 5px red);
-
+        filter: drop-shadow(0 0 5px red);
     }
 
     to {
-
         filter:
-        drop-shadow(0 0 20px red)
-        drop-shadow(0 0 40px
-        rgba(255,0,0,0.5));
-
+            drop-shadow(0 0 18px red)
+            drop-shadow(0 0 35px rgba(255,0,0,.4));
     }
-
 }
 
 
-/* =====================================================
-   HERO TEXT
-===================================================== */
-
 .hero h2 {
-
-    font-size:
-    clamp(18px,3vw,32px);
-
     margin-top: 25px;
 
-    letter-spacing: 4px;
+    font-size:
+        clamp(18px, 3vw, 32px);
 
+    letter-spacing:
+        clamp(1px, .7vw, 4px);
 }
 
 .hero p {
+    max-width: 720px;
 
-    max-width: 700px;
-
-    margin:
-    20px auto;
+    margin: 20px auto;
 
     color: #ccc;
 
     line-height: 1.8;
 
-    font-size: 16px;
-
+    font-size:
+        clamp(14px, 2vw, 17px);
 }
 
 
-/* =====================================================
+/* =========================================================
    BUTTON
-===================================================== */
+========================================================= */
 
 .btn {
-
     display: inline-block;
 
-    margin-top: 20px;
+    margin-top: 18px;
 
     padding:
-    13px 28px;
+        13px 28px;
 
     color: white;
 
-    text-decoration: none;
-
-    border:
-    1px solid red;
+    border: 1px solid red;
 
     border-radius: 30px;
 
     background:
-    rgba(255,0,0,0.08);
+        rgba(255,0,0,.08);
 
-    transition: 0.3s;
-
+    transition: .3s;
 }
 
 .btn:hover {
-
     background: red;
 
     box-shadow:
-    0 0 15px red,
-    0 0 35px
-    rgba(255,0,0,0.5);
+        0 0 15px red,
+        0 0 35px rgba(255,0,0,.4);
 
-    transform:
-    translateY(-3px);
-
+    transform: translateY(-3px);
 }
 
 
-/* =====================================================
-   SECTIONS
-===================================================== */
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
 
 section {
-
+    width: 100%;
     padding:
-    100px 7%;
-
+        clamp(70px, 9vw, 110px)
+        clamp(18px, 7vw, 7%);
 }
 
 .section-title {
+    width: 100%;
+    max-width: 1000px;
+
+    margin:
+        0 auto
+        50px;
 
     text-align: center;
-
-    margin-bottom: 55px;
-
 }
 
 .section-title h2 {
-
     font-size:
-    clamp(30px,5vw,50px);
+        clamp(30px, 5vw, 52px);
 
-    margin-bottom: 15px;
-
+    margin-bottom: 12px;
 }
 
 .section-title span {
-
-    color: #ff3030;
-
+    color: var(--red2);
 }
 
 .section-title p {
+    color: #999;
 
-    color: #aaa;
-
+    font-size:
+        clamp(14px, 2vw, 17px);
 }
 
 
-/* =====================================================
+/* =========================================================
    STUDENT INFO
-===================================================== */
+========================================================= */
 
 .students-section {
-
     background:
-    linear-gradient(
-        180deg,
-        #080808,
-        #111111
-    );
-
+        linear-gradient(
+            180deg,
+            #080808,
+            #111
+        );
 }
 
 .cards {
-
-    display: grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap: 25px;
-
+    width: 100%;
     max-width: 1200px;
 
     margin: auto;
 
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
 }
 
 .card {
+    min-width: 0;
 
-    padding:
-    35px 28px;
+    padding: 32px 26px;
 
     background:
-    linear-gradient(
-        145deg,
-        #191919,
-        #0c0c0c
-    );
+        linear-gradient(
+            145deg,
+            #191919,
+            #0b0b0b
+        );
 
     border:
-    1px solid
-    rgba(255,0,0,0.2);
+        1px solid
+        rgba(255,0,0,.2);
 
-    border-radius: 15px;
+    border-radius: 16px;
 
-    transition: 0.4s;
-
-    position: relative;
-
-    overflow: hidden;
-
-}
-
-.card::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-
-    left: -100%;
-
-    width: 100%;
-
-    height: 2px;
-
-    background: red;
-
-    transition: 0.5s;
-
-}
-
-.card:hover::before {
-
-    left: 100%;
-
+    transition: .4s;
 }
 
 .card:hover {
-
-    transform:
-    translateY(-10px);
+    transform: translateY(-8px);
 
     border-color: red;
 
     box-shadow:
-    0 15px 40px
-    rgba(255,0,0,0.15);
-
+        0 15px 40px
+        rgba(255,0,0,.15);
 }
 
 .card-icon {
-
     font-size: 42px;
-
-    margin-bottom: 20px;
-
+    margin-bottom: 18px;
 }
 
 .card h3 {
-
-    margin-bottom: 15px;
-
-    font-size: 23px;
-
+    font-size: 22px;
+    margin-bottom: 12px;
 }
 
 .card p {
-
     color: #aaa;
-
     line-height: 1.7;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    ABOUT
-===================================================== */
+========================================================= */
 
 .about {
-
     background: #f5f5f5;
-
     color: #111;
-
 }
 
 .about-container {
-
+    width: 100%;
     max-width: 1100px;
 
     margin: auto;
@@ -772,105 +548,95 @@ section {
     display: grid;
 
     grid-template-columns:
-    1fr 1fr;
+        minmax(0, 1fr)
+        minmax(0, 1fr);
 
     gap: 50px;
 
     align-items: center;
-
 }
 
 .about h2 {
-
-    font-size: 45px;
+    font-size:
+        clamp(32px, 5vw, 48px);
 
     margin-bottom: 20px;
-
 }
 
 .about h2 span {
-
     color: #d00000;
-
 }
 
 .about p {
-
     color: #555;
 
     line-height: 1.9;
 
     margin-bottom: 15px;
-
 }
 
 .about-box {
-
-    background: #111;
+    width: 100%;
 
     padding: 45px;
+
+    background: #111;
 
     border-radius: 20px;
 
     text-align: center;
 
     box-shadow:
-    0 20px 50px
-    rgba(0,0,0,0.2);
-
+        0 20px 50px
+        rgba(0,0,0,.2);
 }
 
 .about-box .big {
-
-    font-size: 100px;
+    font-size:
+        clamp(80px, 12vw, 130px);
 
     font-weight: 1000;
 
     color: red;
 
     text-shadow:
-    0 0 20px red;
-
+        0 0 20px red;
 }
 
 
-/* =====================================================
+/* =========================================================
    SFI SECTION
-===================================================== */
+========================================================= */
 
 .sfi-section {
-
-    background:
-    radial-gradient(
-        circle at center,
-        #350000,
-        #090909 65%
-    );
-
     text-align: center;
 
+    background:
+        radial-gradient(
+            circle at center,
+            #350000,
+            #090909 65%
+        );
 }
 
 .sfi-big {
-
     font-size:
-    clamp(80px,15vw,180px);
+        clamp(80px, 16vw, 190px);
 
     font-weight: 1000;
 
     color: white;
 
     text-shadow:
-    0 0 10px red,
-    0 0 30px red,
-    0 0 70px red;
+        0 0 10px red,
+        0 0 30px red,
+        0 0 70px red;
 
     margin-bottom: 25px;
-
 }
 
 .sfi-description {
-
+    width: 100%;
     max-width: 850px;
 
     margin: auto;
@@ -879,23 +645,21 @@ section {
 
     line-height: 1.9;
 
-    font-size: 17px;
-
+    font-size:
+        clamp(14px, 2vw, 17px);
 }
 
 
-/* =====================================================
+/* =========================================================
    EVENTS
-===================================================== */
+========================================================= */
 
 .events {
-
     background: #0d0d0d;
-
 }
 
 .event-grid {
-
+    width: 100%;
     max-width: 1100px;
 
     margin: auto;
@@ -903,87 +667,69 @@ section {
     display: grid;
 
     grid-template-columns:
-    repeat(3,1fr);
+        repeat(3, minmax(0,1fr));
 
     gap: 25px;
-
 }
 
 .event {
+    min-width: 0;
 
     padding: 30px;
 
     border-left:
-    3px solid red;
+        3px solid red;
 
     background: #161616;
 
     border-radius: 10px;
 
-    transition: 0.3s;
-
+    transition: .3s;
 }
 
 .event:hover {
-
-    transform:
-    translateX(8px);
-
-    background: #1d1d1d;
-
+    transform: translateX(7px);
 }
 
 .event-date {
-
     color: red;
 
     font-weight: bold;
 
     margin-bottom: 12px;
-
 }
 
 .event h3 {
-
     margin-bottom: 10px;
-
 }
 
 .event p {
-
     color: #aaa;
 
     line-height: 1.6;
-
 }
 
 
-/* =====================================================
-   PHOTO GALLERY
-===================================================== */
+/* =========================================================
+   GALLERY
+========================================================= */
 
 .gallery-section {
-
-    padding:
-    100px 7%;
-
     background:
-
-    linear-gradient(
-        180deg,
-        #080808,
-        #170000,
-        #080808
-    );
+        linear-gradient(
+            180deg,
+            #080808,
+            #170000,
+            #080808
+        );
 
     overflow: hidden;
-
 }
 
 .gallery-slider {
-
     position: relative;
 
+    width: 100%;
     max-width: 1200px;
 
     margin: auto;
@@ -991,30 +737,24 @@ section {
     overflow: hidden;
 
     border-radius: 20px;
-
 }
 
 .gallery-track {
-
     display: flex;
 
     gap: 20px;
 
     transition:
-    transform 0.8s
-    cubic-bezier(
-        0.65,
-        0,
-        0.35,
-        1
-    );
+        transform .8s
+        cubic-bezier(.65,0,.35,1);
 
+    will-change: transform;
 }
 
 .gallery-card {
+    flex: 0 0 calc(33.333333% - 13.333px);
 
-    min-width:
-    calc(33.333% - 14px);
+    min-width: 0;
 
     background: #151515;
 
@@ -1023,155 +763,126 @@ section {
     overflow: hidden;
 
     border:
-    1px solid
-    rgba(255,0,0,0.25);
+        1px solid
+        rgba(255,0,0,.25);
 
     box-shadow:
-    0 10px 35px
-    rgba(0,0,0,0.35);
+        0 10px 35px
+        rgba(0,0,0,.35);
 
-    transition: 0.4s;
-
+    transition: .4s;
 }
 
 .gallery-card:hover {
-
-    transform:
-    translateY(-8px);
-
     border-color: red;
 
     box-shadow:
-    0 15px 45px
-    rgba(255,0,0,0.25);
-
+        0 15px 45px
+        rgba(255,0,0,.25);
 }
 
 .gallery-card img {
+    display: block;
 
     width: 100%;
 
     height: 260px;
 
-    display: block;
-
     object-fit: cover;
 
-    transition: 0.6s;
-
+    transition: .6s;
 }
 
 .gallery-card:hover img {
-
-    transform:
-    scale(1.06);
-
+    transform: scale(1.05);
 }
 
 .gallery-info {
-
     padding: 18px;
-
 }
 
 .gallery-info h3 {
-
-    color: white;
-
-    margin-bottom: 8px;
-
     font-size: 19px;
-
+    margin-bottom: 8px;
 }
 
 .gallery-info p {
-
     color: #999;
 
     font-size: 14px;
 
     line-height: 1.6;
-
 }
 
 
-/* =====================================================
-   SLIDER BUTTONS
-===================================================== */
+/* =========================================================
+   SLIDER BUTTON
+========================================================= */
 
 .slider-btn {
-
     position: absolute;
 
-    top: 42%;
+    top: 50%;
+
+    transform: translateY(-50%);
 
     width: 45px;
-
     height: 45px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.4);
 
     border-radius: 50%;
 
-    border:
-    1px solid
-    rgba(255,255,255,0.4);
-
     background:
-    rgba(0,0,0,0.65);
+        rgba(0,0,0,.7);
 
     color: white;
 
-    font-size: 25px;
+    font-size: 23px;
 
     cursor: pointer;
 
-    z-index: 10;
+    z-index: 5;
 
-    transition: 0.3s;
-
+    transition: .3s;
 }
 
 .slider-btn:hover {
-
     background: red;
 
     box-shadow:
-    0 0 20px red;
-
+        0 0 20px red;
 }
 
 .slider-prev {
-
-    left: 15px;
-
+    left: 12px;
 }
 
 .slider-next {
-
-    right: 15px;
-
+    right: 12px;
 }
 
 
-/* =====================================================
-   SLIDER DOTS
-===================================================== */
+/* =========================================================
+   DOTS
+========================================================= */
 
 .slider-dots {
-
     display: flex;
 
     justify-content: center;
 
-    gap: 8px;
+    align-items: center;
 
-    margin-top: 25px;
+    gap: 7px;
 
+    margin-top: 24px;
 }
 
 .slider-dot {
-
     width: 9px;
-
     height: 9px;
 
     border-radius: 50%;
@@ -1180,147 +891,131 @@ section {
 
     cursor: pointer;
 
-    transition: 0.3s;
-
+    transition: .3s;
 }
 
 .slider-dot.active {
-
-    width: 28px;
+    width: 27px;
 
     border-radius: 10px;
 
     background: red;
 
     box-shadow:
-    0 0 10px red;
-
+        0 0 10px red;
 }
 
 
-/* =====================================================
-   STUDENT FORM
-===================================================== */
+/* =========================================================
+   FORM
+========================================================= */
 
 .form-section {
-
     background:
-    linear-gradient(
-        135deg,
-        #180000,
-        #080808
-    );
-
+        linear-gradient(
+            135deg,
+            #180000,
+            #080808
+        );
 }
 
 .form-container {
-
+    width: 100%;
     max-width: 800px;
 
     margin: auto;
 
+    padding:
+        clamp(20px, 5vw, 40px);
+
     background:
-    rgba(255,255,255,0.04);
-
-    padding: 40px;
-
-    border-radius: 20px;
+        rgba(255,255,255,.04);
 
     border:
-    1px solid
-    rgba(255,0,0,0.2);
+        1px solid
+        rgba(255,0,0,.2);
 
+    border-radius: 20px;
 }
 
 .form-grid {
+    width: 100%;
 
     display: grid;
 
     grid-template-columns:
-    1fr 1fr;
+        repeat(2, minmax(0,1fr));
 
     gap: 20px;
-
 }
 
 .input-group {
+    min-width: 0;
 
     display: flex;
 
     flex-direction: column;
 
     gap: 8px;
-
 }
 
 .input-group.full {
-
-    grid-column:
-    1 / -1;
-
+    grid-column: 1 / -1;
 }
 
-label {
-
+.input-group label {
     color: #ddd;
 
     font-size: 14px;
-
 }
 
-input,
-select,
-textarea {
-
+.input-group input,
+.input-group select,
+.input-group textarea {
     width: 100%;
+    max-width: 100%;
 
     padding: 14px;
 
-    border-radius: 8px;
-
     border:
-    1px solid #333;
+        1px solid #333;
+
+    border-radius: 8px;
 
     background: #0b0b0b;
 
     color: white;
 
     outline: none;
-
-    transition: 0.3s;
-
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-
-    border-color: red;
-
-    box-shadow:
-    0 0 10px
-    rgba(255,0,0,0.15);
-
-}
-
-textarea {
-
+.input-group textarea {
     min-height: 120px;
 
     resize: vertical;
+}
 
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    border-color: red;
+
+    box-shadow:
+        0 0 10px
+        rgba(255,0,0,.15);
 }
 
 .submit-btn {
-
     margin-top: 25px;
 
     padding:
-    14px 35px;
-
-    background: red;
+        14px 35px;
 
     border: none;
+
+    border-radius: 30px;
+
+    background: red;
 
     color: white;
 
@@ -1328,41 +1023,33 @@ textarea {
 
     font-weight: bold;
 
-    border-radius: 30px;
-
     cursor: pointer;
 
-    transition: 0.3s;
-
+    transition: .3s;
 }
 
 .submit-btn:hover {
-
     background: #c00000;
 
     box-shadow:
-    0 0 20px red;
+        0 0 20px red;
 
-    transform:
-    scale(1.04);
-
+    transform: scale(1.03);
 }
 
 
-/* =====================================================
+/* =========================================================
    CONTACT
-===================================================== */
+========================================================= */
 
 .contact {
-
     background: #f5f5f5;
 
     color: #111;
-
 }
 
 .contact-grid {
-
+    width: 100%;
     max-width: 1000px;
 
     margin: auto;
@@ -1370,294 +1057,352 @@ textarea {
     display: grid;
 
     grid-template-columns:
-    repeat(3,1fr);
+        repeat(3, minmax(0,1fr));
 
     gap: 25px;
-
 }
 
 .contact-card {
+    min-width: 0;
 
     text-align: center;
 
-    padding:
-    35px 20px;
+    padding: 35px 20px;
 
     background: white;
 
     border-radius: 15px;
 
     box-shadow:
-    0 10px 30px
-    rgba(0,0,0,0.08);
+        0 10px 30px
+        rgba(0,0,0,.08);
 
-    transition: 0.3s;
-
+    transition: .3s;
 }
 
 .contact-card:hover {
-
-    transform:
-    translateY(-7px);
-
+    transform: translateY(-7px);
 }
 
 .contact-icon {
-
     font-size: 35px;
 
     margin-bottom: 15px;
-
 }
 
 .contact-card p {
-
     color: #666;
 
     margin-top: 8px;
 
+    overflow-wrap: anywhere;
 }
 
 
-/* =====================================================
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 
 footer {
+    width: 100%;
 
     padding:
-    35px 20px;
+        35px 20px;
 
     text-align: center;
 
     background: #050505;
 
     border-top:
-    1px solid
-    rgba(255,0,0,0.2);
-
+        1px solid
+        rgba(255,0,0,.2);
 }
 
 footer h3 {
-
     color: red;
 
     margin-bottom: 10px;
-
 }
 
 footer p {
-
     color: #777;
 
     font-size: 14px;
-
 }
 
 
-/* =====================================================
-   SCROLL REVEAL
-===================================================== */
+/* =========================================================
+   REVEAL
+========================================================= */
 
 .reveal {
-
     opacity: 0;
 
     transform:
-    translateY(50px);
+        translateY(35px);
 
     transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
-
+        opacity .8s ease,
+        transform .8s ease;
 }
 
 .reveal.active {
-
     opacity: 1;
 
     transform:
-    translateY(0);
-
+        translateY(0);
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* =========================================================
+   TABLET
+========================================================= */
 
-@media(max-width:850px) {
+@media (max-width: 1000px) {
+
+    header {
+        padding: 0 4%;
+    }
+
+    .nav-menu {
+        gap: 18px;
+    }
+
+    .nav-menu a {
+        font-size: 14px;
+    }
+
+    .cards {
+        grid-template-columns:
+            repeat(2, minmax(0,1fr));
+    }
+
+    .event-grid {
+        grid-template-columns:
+            repeat(2, minmax(0,1fr));
+    }
+
+    .contact-grid {
+        grid-template-columns:
+            repeat(2, minmax(0,1fr));
+    }
+
+    .gallery-card {
+        flex-basis:
+            calc(50% - 10px);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    header {
+        height: 65px;
+
+        padding:
+            0 16px;
+    }
+
+    .logo-circle {
+        width: 40px;
+        height: 40px;
+
+        font-size: 14px;
+    }
 
     .hamburger {
-
         display: flex;
-
     }
 
     .nav-menu {
 
         position: fixed;
 
-        top: 75px;
-
+        top: 65px;
         right: -100%;
 
-        width: 280px;
+        width: min(300px, 85vw);
 
         height:
-        calc(100vh - 75px);
+            calc(100vh - 65px);
 
-        background:
-        rgba(10,10,10,0.98);
+        padding:
+            35px 25px;
+
+        display: flex;
 
         flex-direction: column;
 
         align-items: flex-start;
 
-        padding:
-        40px 30px;
-
         gap: 25px;
 
-        transition: 0.4s;
+        background:
+            rgba(8,8,8,.98);
 
         border-left:
-        1px solid
-        rgba(255,0,0,0.3);
+            1px solid
+            rgba(255,0,0,.3);
 
+        transition: .4s;
+
+        overflow-y: auto;
     }
 
     .nav-menu.active {
-
         right: 0;
-
     }
 
-    .hamburger.active
-    span:nth-child(1) {
-
-        transform:
-        rotate(45deg)
-        translate(5px,5px);
-
+    .nav-menu a {
+        font-size: 17px;
     }
 
-    .hamburger.active
-    span:nth-child(2) {
+    .hero {
+        min-height: 100svh;
 
-        opacity: 0;
-
+        padding:
+            100px 18px
+            60px;
     }
 
-    .hamburger.active
-    span:nth-child(3) {
+    .sfi-title {
+        font-size:
+            clamp(75px, 25vw, 140px);
 
-        transform:
-        rotate(-45deg)
-        translate(5px,-5px);
-
+        letter-spacing:
+            clamp(3px, 2vw, 8px);
     }
 
-    .cards,
-    .event-grid,
-    .contact-grid {
+    .hero h2 {
+        line-height: 1.4;
+    }
 
+    .hero p {
+        line-height: 1.7;
+    }
+
+    .cards {
         grid-template-columns: 1fr;
-
     }
 
     .about-container {
-
         grid-template-columns: 1fr;
 
+        gap: 35px;
+    }
+
+    .about-box {
+        padding: 30px 20px;
+    }
+
+    .event-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
     }
 
     .form-grid {
-
         grid-template-columns: 1fr;
-
     }
 
     .input-group.full {
-
         grid-column: auto;
-
-    }
-
-    .hero::before {
-
-        width: 300px;
-        height: 300px;
-
-    }
-
-    .hero::after {
-
-        width: 400px;
-        height: 400px;
-
     }
 
     .gallery-card {
+        flex-basis: 100%;
+    }
 
-        min-width:
-        calc(50% - 10px);
+    .gallery-card img {
+        height:
+            min(65vw, 280px);
+    }
 
+    .slider-btn {
+        width: 40px;
+        height: 40px;
+
+        font-size: 20px;
+    }
+
+    .slider-prev {
+        left: 8px;
+    }
+
+    .slider-next {
+        right: 8px;
     }
 
 }
 
 
-/* =====================================================
+/* =========================================================
    SMALL MOBILE
-===================================================== */
+========================================================= */
 
-@media(max-width:550px) {
-
-    header {
-
-        padding:
-        0 20px;
-
-    }
+@media (max-width: 400px) {
 
     section {
-
-        padding:
-        75px 20px;
-
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
-    .form-container {
-
-        padding:
-        25px 18px;
-
+    .hero {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
     .sfi-title {
-
-        letter-spacing:
-        5px;
-
+        font-size: 72px;
     }
 
-    .gallery-card {
-
-        min-width: 100%;
-
+    .hero h2 {
+        font-size: 17px;
     }
 
-    .gallery-card img {
+    .hero p {
+        font-size: 14px;
+    }
 
-        height: 230px;
+    .btn {
+        padding:
+            12px 22px;
+    }
 
+    .form-container {
+        padding: 20px 15px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
     }
 
 }
 
 </style>
-
 </head>
 
 
@@ -1677,76 +1422,82 @@ footer p {
 
 <header>
 
+    <a href="#home" class="logo">
 
-<a href="#home"
-class="logo">
+        <div class="logo-circle">
+            SFI
+        </div>
 
-    <div class="logo-circle">
-        SFI
-    </div>
-
-</a>
+    </a>
 
 
-<nav>
+    <nav>
 
-<ul class="nav-menu">
+        <ul class="nav-menu" id="navMenu">
 
-<li>
-<a href="#home">
-Home
-</a>
-</li>
+            <li>
+                <a href="#home">
+                    Home
+                </a>
+            </li>
 
-<li>
-<a href="#students">
-Students Info
-</a>
-</li>
+            <li>
+                <a href="#students">
+                    Students Info
+                </a>
+            </li>
 
-<li>
-<a href="#about">
-About
-</a>
-</li>
+            <li>
+                <a href="#about">
+                    About
+                </a>
+            </li>
 
-<li>
-<a href="#sfi">
-SFI
-</a>
-</li>
+            <li>
+                <a href="#sfi">
+                    SFI
+                </a>
+            </li>
 
-<li>
-<a href="#events">
-Events
-</a>
-</li>
+            <li>
+                <a href="#events">
+                    Events
+                </a>
+            </li>
 
-<li>
-<a href="#gallery">
-Gallery
-</a>
-</li>
+            <li>
+                <a href="#gallery">
+                    Gallery
+                </a>
+            </li>
 
-<li>
-<a href="#contact">
-Contact
-</a>
-</li>
+            <li>
+                <a href="#join">
+                    Join
+                </a>
+            </li>
 
-</ul>
+            <li>
+                <a href="#contact">
+                    Contact
+                </a>
+            </li>
 
-</nav>
+        </ul>
+
+    </nav>
 
 
-<div class="hamburger">
+    <button
+        class="hamburger"
+        id="hamburger"
+        aria-label="Open Menu">
 
-<span></span>
-<span></span>
-<span></span>
+        <span></span>
+        <span></span>
+        <span></span>
 
-</div>
-
+    </button>
 
 </header>
 
@@ -1757,44 +1508,35 @@ Contact
 ===================================================== -->
 
 <section
-class="hero"
-id="home">
+    class="hero"
+    id="home">
 
+    <div class="hero-content">
 
-<div class="hero-content">
+        <div class="sfi-title">
+            SFI
+        </div>
 
+        <h2>
+            Students' Federation of India
+        </h2>
 
-<div class="sfi-title">
-SFI
-</div>
+        <p>
+            विद्यार्थ्यांशी संबंधित माहिती,
+            शैक्षणिक उपक्रम, कार्यक्रम
+            आणि सार्वजनिक माहिती
+            एकाच ठिकाणी.
+        </p>
 
+        <a
+            href="#students"
+            class="btn">
 
-<h2>
-Students' Federation of India
-</h2>
+            Explore Students Info
 
+        </a>
 
-<p>
-
-विद्यार्थ्यांशी संबंधित माहिती,
-शैक्षणिक उपक्रम, कार्यक्रम
-आणि संघटनेविषयी सार्वजनिक
-माहिती एकाच ठिकाणी.
-
-</p>
-
-
-<a
-href="#students"
-class="btn">
-
-Students Information
-
-</a>
-
-
-</div>
-
+    </div>
 
 </section>
 
@@ -1805,96 +1547,86 @@ Students Information
 ===================================================== -->
 
 <section
-class="students-section"
-id="students">
+    class="students-section"
+    id="students">
+
+    <div class="section-title reveal">
+
+        <h2>
+            Students
+            <span>Info</span>
+        </h2>
+
+        <p>
+            विद्यार्थ्यांसाठी उपयुक्त माहिती
+        </p>
+
+    </div>
 
 
-<div class="section-title reveal">
-
-<h2>
-
-Students
-<span>Info</span>
-
-</h2>
-
-<p>
-विद्यार्थ्यांसाठी उपयुक्त माहिती
-</p>
-
-</div>
+    <div class="cards">
 
 
-<div class="cards">
+        <div class="card reveal">
 
+            <div class="card-icon">
+                🎓
+            </div>
 
-<div class="card reveal">
+            <h3>
+                Education
+            </h3>
 
-<div class="card-icon">
-🎓
-</div>
+            <p>
+                विद्यार्थ्यांसाठी शैक्षणिक
+                माहिती, अभ्यासक्रम आणि
+                विविध शैक्षणिक संसाधने.
+            </p>
 
-<h3>
-Education
-</h3>
-
-<p>
-
-विद्यार्थ्यांसाठी शैक्षणिक
-माहिती, अभ्यासक्रम आणि
-विविध शैक्षणिक संसाधने.
-
-</p>
-
-</div>
+        </div>
 
 
 
-<div class="card reveal">
+        <div class="card reveal">
 
-<div class="card-icon">
-📚
-</div>
+            <div class="card-icon">
+                📚
+            </div>
 
-<h3>
-Student Resources
-</h3>
+            <h3>
+                Student Resources
+            </h3>
 
-<p>
+            <p>
+                Scholarship, career आणि
+                विद्यार्थ्यांसाठी उपयुक्त
+                विविध संसाधनांची माहिती.
+            </p>
 
-Scholarship, career आणि
-विद्यार्थ्यांना उपयोगी
-असलेल्या विविध संसाधनांची
-माहिती.
-
-</p>
-
-</div>
+        </div>
 
 
 
-<div class="card reveal">
+        <div class="card reveal">
 
-<div class="card-icon">
-🏫
-</div>
+            <div class="card-icon">
+                🏫
+            </div>
 
-<h3>
-Campus Information
-</h3>
+            <h3>
+                Campus Information
+            </h3>
 
-<p>
+            <p>
+                महाविद्यालयीन उपक्रम,
+                कार्यक्रम आणि campus
+                संबंधित माहिती.
+            </p>
 
-महाविद्यालयीन उपक्रम,
-शैक्षणिक कार्यक्रम आणि
-campus संबंधित माहिती.
-
-</p>
-
-</div>
+        </div>
 
 
-</div>
+    </div>
 
 </section>
 
@@ -1905,67 +1637,51 @@ campus संबंधित माहिती.
 ===================================================== -->
 
 <section
-class="about"
-id="about">
+    class="about"
+    id="about">
+
+    <div class="about-container">
 
 
-<div
-class="about-container">
+        <div class="reveal">
+
+            <h2>
+                About
+                <span>SFI</span>
+            </h2>
+
+            <p>
+                Students' Federation of India
+                या नावाने ओळखल्या जाणाऱ्या
+                विद्यार्थी संघटनेविषयी अधिकृत
+                आणि सार्वजनिक माहिती येथे
+                प्रकाशित करता येईल.
+            </p>
+
+            <p>
+                संघटनेचा इतिहास, उपक्रम,
+                कार्यक्रम आणि विद्यार्थ्यांशी
+                संबंधित माहिती व्यवस्थित
+                स्वरूपात येथे देता येईल.
+            </p>
+
+        </div>
 
 
-<div class="reveal">
+        <div class="about-box reveal">
 
-<h2>
+            <div class="big">
+                SFI
+            </div>
 
-About
-<span>SFI</span>
+            <p style="color:#aaa;">
+                Students' Federation of India
+            </p>
 
-</h2>
-
-
-<p>
-
-Students' Federation of India
-या नावाने ओळखल्या जाणाऱ्या
-विद्यार्थी संघटनेविषयी अधिकृत
-आणि अचूक माहिती, इतिहास,
-उपक्रम आणि कार्यक्रम येथे
-प्रकाशित करता येतील.
-
-</p>
+        </div>
 
 
-<p>
-
-या website चा उद्देश
-विद्यार्थ्यांना संघटनेशी संबंधित
-सार्वजनिक माहिती एका सोप्या
-आणि व्यवस्थित स्वरूपात
-उपलब्ध करून देणे हा आहे.
-
-</p>
-
-</div>
-
-
-
-<div class="about-box reveal">
-
-<div class="big">
-SFI
-</div>
-
-<p
-style="color:#aaa;">
-
-Students' Federation of India
-
-</p>
-
-</div>
-
-
-</div>
+    </div>
 
 </section>
 
@@ -1976,43 +1692,33 @@ Students' Federation of India
 ===================================================== -->
 
 <section
-class="sfi-section"
-id="sfi">
+    class="sfi-section"
+    id="sfi">
+
+    <div class="section-title reveal">
+
+        <h2>
+            About
+            <span>SFI</span>
+        </h2>
+
+    </div>
 
 
-<div
-class="section-title reveal">
-
-<h2>
-
-About
-<span>SFI</span>
-
-</h2>
-
-</div>
+    <div class="sfi-big reveal">
+        SFI
+    </div>
 
 
-<div
-class="sfi-big reveal">
+    <p class="sfi-description reveal">
 
-SFI
+        येथे SFI चा इतिहास,
+        उद्दिष्टे, संघटनेची रचना,
+        सार्वजनिक उपक्रम,
+        कार्यक्रम आणि अधिकृत
+        माहिती प्रकाशित करता येईल.
 
-</div>
-
-
-<p
-class="sfi-description reveal">
-
-येथे SFI चा इतिहास,
-स्थापना, उद्दिष्टे,
-संघटनेची रचना,
-सार्वजनिक उपक्रम,
-कार्यक्रम आणि अधिकृत
-संपर्क माहिती यांचा
-सविस्तर मजकूर ठेवता येईल.
-
-</p>
+    </p>
 
 </section>
 
@@ -2023,98 +1729,86 @@ class="sfi-description reveal">
 ===================================================== -->
 
 <section
-class="events"
-id="events">
+    class="events"
+    id="events">
+
+    <div class="section-title reveal">
+
+        <h2>
+            Events &
+            <span>Activities</span>
+        </h2>
+
+        <p>
+            विविध कार्यक्रम आणि उपक्रम
+        </p>
+
+    </div>
 
 
-<div
-class="section-title reveal">
-
-<h2>
-
-Events &
-<span>Activities</span>
-
-</h2>
-
-<p>
-आगामी आणि मागील कार्यक्रम
-</p>
-
-</div>
+    <div class="event-grid">
 
 
-<div
-class="event-grid">
+        <div class="event reveal">
 
+            <div class="event-date">
+                EVENT 01
+            </div>
 
-<div class="event reveal">
+            <h3>
+                Educational Program
+            </h3>
 
-<div class="event-date">
-EVENT 01
-</div>
+            <p>
+                कार्यक्रमाची तारीख,
+                वेळ, ठिकाण आणि
+                सार्वजनिक माहिती येथे लिहा.
+            </p>
 
-<h3>
-Educational Program
-</h3>
-
-<p>
-
-कार्यक्रमाची तारीख,
-वेळ, ठिकाण आणि
-सार्वजनिक माहिती
-येथे लिहा.
-
-</p>
-
-</div>
+        </div>
 
 
 
-<div class="event reveal">
+        <div class="event reveal">
 
-<div class="event-date">
-EVENT 02
-</div>
+            <div class="event-date">
+                EVENT 02
+            </div>
 
-<h3>
-Student Seminar
-</h3>
+            <h3>
+                Student Seminar
+            </h3>
 
-<p>
+            <p>
+                विद्यार्थ्यांसाठी आयोजित
+                seminar ची माहिती येथे
+                देता येईल.
+            </p>
 
-विद्यार्थ्यांसाठी आयोजित
-seminar ची माहिती
-येथे देता येईल.
-
-</p>
-
-</div>
+        </div>
 
 
 
-<div class="event reveal">
+        <div class="event reveal">
 
-<div class="event-date">
-EVENT 03
-</div>
+            <div class="event-date">
+                EVENT 03
+            </div>
 
-<h3>
-Campus Activity
-</h3>
+            <h3>
+                Campus Activity
+            </h3>
 
-<p>
+            <p>
+                Campus मधील कार्यक्रमांची
+                सार्वजनिक माहिती येथे
+                प्रकाशित करता येईल.
+            </p>
 
-Campus मध्ये होणाऱ्या
-सार्वजनिक कार्यक्रमांची
-माहिती येथे प्रकाशित करा.
-
-</p>
-
-</div>
+        </div>
 
 
-</div>
+    </div>
 
 </section>
 
@@ -2125,227 +1819,214 @@ Campus मध्ये होणाऱ्या
 ===================================================== -->
 
 <section
-class="gallery-section"
-id="gallery">
+    class="gallery-section"
+    id="gallery">
 
 
-<div
-class="section-title reveal">
+    <div class="section-title reveal">
 
-<h2>
+        <h2>
+            Student
+            <span>Activities</span>
+        </h2>
 
-Student
-<span>Activities</span>
+        <p>
+            विविध कार्यक्रमांतील काही क्षण
+        </p>
 
-</h2>
+    </div>
 
-<p>
 
-विविध कार्यक्रमांतील
-काही क्षण
 
-</p>
+    <div class="gallery-slider"
+         id="gallerySlider">
 
-</div>
 
+        <button
+            class="slider-btn slider-prev"
+            id="prevBtn">
 
+            ❮
 
-<div class="gallery-slider">
+        </button>
 
 
-<button
-class="slider-btn slider-prev"
-id="prevBtn">
 
-❮
+        <div
+            class="gallery-track"
+            id="galleryTrack">
 
-</button>
 
+            <!-- PHOTO 1 -->
 
+            <div class="gallery-card">
 
-<div
-class="gallery-track"
-id="galleryTrack">
+                <img
+                    src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80"
+                    alt="Student Activity">
 
+                <div class="gallery-info">
 
-<!-- PHOTO 1 -->
+                    <h3>
+                        विद्यार्थी कार्यक्रम
+                    </h3>
 
-<div
-class="gallery-card">
+                    <p>
+                        कार्यक्रमातील
+                        विद्यार्थ्यांचे काही क्षण.
+                    </p>
 
-<img
-src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80"
-alt="Student Activity">
+                </div>
 
-<div class="gallery-info">
+            </div>
 
-<h3>
-विद्यार्थी कार्यक्रम
-</h3>
 
-<p>
-कार्यक्रमातील विद्यार्थ्यांचे
-काही क्षण.
-</p>
 
-</div>
+            <!-- PHOTO 2 -->
 
-</div>
+            <div class="gallery-card">
 
+                <img
+                    src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=80"
+                    alt="Student Event">
 
+                <div class="gallery-info">
 
-<!-- PHOTO 2 -->
+                    <h3>
+                        शैक्षणिक उपक्रम
+                    </h3>
 
-<div
-class="gallery-card">
+                    <p>
+                        शैक्षणिक उपक्रमातील
+                        विद्यार्थ्यांचा सहभाग.
+                    </p>
 
-<img
-src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=80"
-alt="Student Event">
+                </div>
 
-<div class="gallery-info">
+            </div>
 
-<h3>
-शैक्षणिक उपक्रम
-</h3>
 
-<p>
-शैक्षणिक उपक्रमातील
-विद्यार्थ्यांचा सहभाग.
-</p>
 
-</div>
+            <!-- PHOTO 3 -->
 
-</div>
+            <div class="gallery-card">
 
+                <img
+                    src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=900&q=80"
+                    alt="Student Program">
 
+                <div class="gallery-info">
 
-<!-- PHOTO 3 -->
+                    <h3>
+                        विद्यार्थी मेळावा
+                    </h3>
 
-<div
-class="gallery-card">
+                    <p>
+                        विद्यार्थी कार्यक्रमातील
+                        काही आठवणी.
+                    </p>
 
-<img
-src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=900&q=80"
-alt="Student Program">
+                </div>
 
-<div class="gallery-info">
+            </div>
 
-<h3>
-विद्यार्थी मेळावा
-</h3>
 
-<p>
-विद्यार्थी कार्यक्रमातील
-काही आठवणी.
-</p>
 
-</div>
+            <!-- PHOTO 4 -->
 
-</div>
+            <div class="gallery-card">
 
+                <img
+                    src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80"
+                    alt="Campus Activity">
 
+                <div class="gallery-info">
 
-<!-- PHOTO 4 -->
+                    <h3>
+                        Campus Activity
+                    </h3>
 
-<div
-class="gallery-card">
+                    <p>
+                        Campus मधील
+                        कार्यक्रमाचे काही क्षण.
+                    </p>
 
-<img
-src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80"
-alt="Campus Activity">
+                </div>
 
-<div class="gallery-info">
+            </div>
 
-<h3>
-Campus Activity
-</h3>
 
-<p>
-Campus मधील कार्यक्रमाचे
-काही क्षण.
-</p>
 
-</div>
+            <!-- PHOTO 5 -->
 
-</div>
+            <div class="gallery-card">
 
+                <img
+                    src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=80"
+                    alt="Student Seminar">
 
+                <div class="gallery-info">
 
-<!-- PHOTO 5 -->
+                    <h3>
+                        Student Seminar
+                    </h3>
 
-<div
-class="gallery-card">
+                    <p>
+                        विद्यार्थ्यांच्या
+                        seminar मधील काही क्षण.
+                    </p>
 
-<img
-src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=80"
-alt="Student Seminar">
+                </div>
 
-<div class="gallery-info">
+            </div>
 
-<h3>
-Student Seminar
-</h3>
 
-<p>
-विद्यार्थ्यांच्या seminar
-मधील काही क्षण.
-</p>
 
-</div>
+            <!-- PHOTO 6 -->
 
-</div>
+            <div class="gallery-card">
 
+                <img
+                    src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=900&q=80"
+                    alt="Student Activity">
 
+                <div class="gallery-info">
 
-<!-- PHOTO 6 -->
+                    <h3>
+                        विद्यार्थी उपक्रम
+                    </h3>
 
-<div
-class="gallery-card">
+                    <p>
+                        विविध उपक्रमांतील
+                        विद्यार्थ्यांचे क्षण.
+                    </p>
 
-<img
-src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=900&q=80"
-alt="Student Activity">
+                </div>
 
-<div class="gallery-info">
+            </div>
 
-<h3>
-विद्यार्थी उपक्रम
-</h3>
 
-<p>
-विविध उपक्रमांतील
-विद्यार्थ्यांचे क्षण.
-</p>
+        </div>
 
-</div>
 
-</div>
 
+        <button
+            class="slider-btn slider-next"
+            id="nextBtn">
 
+            ❯
 
-</div>
+        </button>
 
 
+    </div>
 
-<button
-class="slider-btn slider-next"
-id="nextBtn">
 
-❯
 
-</button>
-
-
-</div>
-
-
-
-<div
-class="slider-dots"
-id="sliderDots">
-
-</div>
+    <div
+        class="slider-dots"
+        id="sliderDots">
+    </div>
 
 
 </section>
@@ -2353,136 +2034,131 @@ id="sliderDots">
 
 
 <!-- =====================================================
-     STUDENT INFORMATION FORM
+     JOIN STUDENTS
 ===================================================== -->
 
 <section
-class="form-section"
-id="student-form">
+    class="form-section"
+    id="join">
 
 
-<div
-class="section-title reveal">
+    <div class="section-title reveal">
 
-<h2>
+        <h2>
+            Student
+            <span>Join</span>
+        </h2>
 
-Student
-<span>Information</span>
+        <p>
+            विद्यार्थ्यांनी आपली माहिती
+            भरावी
+        </p>
 
-</h2>
-
-<p>
-माहिती किंवा संपर्कासाठी form
-</p>
-
-</div>
-
-
-
-<div
-class="form-container reveal">
-
-
-<form
-id="studentForm">
-
-
-<div
-class="form-grid">
-
-
-<div class="input-group">
-
-<label>
-Full Name
-</label>
-
-<input
-type="text"
-id="name"
-placeholder="तुमचे नाव"
-required>
-
-</div>
+    </div>
 
 
 
-<div class="input-group">
-
-<label>
-Email
-</label>
-
-<input
-type="email"
-id="email"
-placeholder="example@email.com"
-required>
-
-</div>
+    <div
+        class="form-container reveal">
 
 
+        <form id="studentForm">
 
-<div class="input-group">
 
-<label>
-Mobile Number
-</label>
+            <div class="form-grid">
 
-<input
-type="tel"
-id="mobile"
-placeholder="Mobile Number">
 
-</div>
+                <div class="input-group">
+
+                    <label>
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="तुमचे पूर्ण नाव"
+                        required>
+
+                </div>
 
 
 
-<div class="input-group">
+                <div class="input-group">
 
-<label>
-College / University
-</label>
+                    <label>
+                        Email
+                    </label>
 
-<input
-type="text"
-id="college"
-placeholder="College Name">
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="example@email.com"
+                        required>
 
-</div>
-
-
-
-<div
-class="input-group full">
-
-<label>
-Your Message
-</label>
-
-<textarea
-id="message"
-placeholder="तुमचा संदेश लिहा...">
-</textarea>
-
-</div>
+                </div>
 
 
-</div>
+
+                <div class="input-group">
+
+                    <label>
+                        Mobile Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="mobile"
+                        placeholder="Mobile Number"
+                        inputmode="numeric">
+
+                </div>
 
 
-<button
-type="submit"
-class="submit-btn">
 
-Submit Information
+                <div class="input-group">
 
-</button>
+                    <label>
+                        College / University
+                    </label>
+
+                    <input
+                        type="text"
+                        id="college"
+                        placeholder="College Name">
+
+                </div>
 
 
-</form>
 
-</div>
+                <div class="input-group full">
+
+                    <label>
+                        Message
+                    </label>
+
+                    <textarea
+                        id="message"
+                        placeholder="तुमचा संदेश लिहा..."></textarea>
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-btn">
+
+                Submit Information
+
+            </button>
+
+
+        </form>
+
+    </div>
 
 </section>
 
@@ -2493,92 +2169,82 @@ Submit Information
 ===================================================== -->
 
 <section
-class="contact"
-id="contact">
+    class="contact"
+    id="contact">
 
 
-<div
-class="section-title reveal">
+    <div class="section-title reveal">
 
-<h2>
+        <h2>
+            <span>Contact</span>
+            Us
+        </h2>
 
-<span>Contact</span>
-Us
+        <p>
+            अधिकृत संपर्क माहिती
+        </p>
 
-</h2>
-
-<p>
-अधिकृत संपर्क माहिती
-</p>
-
-</div>
+    </div>
 
 
 
-<div
-class="contact-grid">
+    <div class="contact-grid">
 
 
-<div
-class="contact-card reveal">
+        <div class="contact-card reveal">
 
-<div
-class="contact-icon">
-📧
-</div>
+            <div class="contact-icon">
+                📧
+            </div>
 
-<h3>
-Email
-</h3>
+            <h3>
+                Email
+            </h3>
 
-<p>
-your-email@example.com
-</p>
+            <p>
+                your-email@example.com
+            </p>
 
-</div>
+        </div>
 
 
 
-<div
-class="contact-card reveal">
+        <div class="contact-card reveal">
 
-<div
-class="contact-icon">
-📞
-</div>
+            <div class="contact-icon">
+                📞
+            </div>
 
-<h3>
-Phone
-</h3>
+            <h3>
+                Phone
+            </h3>
 
-<p>
-+91 XXXXX XXXXX
-</p>
+            <p>
+                +91 XXXXX XXXXX
+            </p>
 
-</div>
+        </div>
 
 
 
-<div
-class="contact-card reveal">
+        <div class="contact-card reveal">
 
-<div
-class="contact-icon">
-📍
-</div>
+            <div class="contact-icon">
+                📍
+            </div>
 
-<h3>
-Office
-</h3>
+            <h3>
+                Office
+            </h3>
 
-<p>
-तुमचा पत्ता येथे लिहा
-</p>
+            <p>
+                तुमचा पत्ता येथे लिहा
+            </p>
 
-</div>
+        </div>
 
 
-</div>
+    </div>
 
 </section>
 
@@ -2590,21 +2256,17 @@ Office
 
 <footer>
 
-<h3>
-SFI
-</h3>
+    <h3>
+        SFI
+    </h3>
 
-<p>
-Students' Federation of India
-</p>
+    <p>
+        Students' Federation of India
+    </p>
 
-<p
-style="margin-top:10px;">
-
-© 2026 SFI.
-All Rights Reserved.
-
-</p>
+    <p style="margin-top:10px;">
+        © 2026 SFI. All Rights Reserved.
+    </p>
 
 </footer>
 
@@ -2612,257 +2274,188 @@ All Rights Reserved.
 
 <script>
 
-/* =====================================================
+/* =========================================================
    HAMBURGER MENU
-===================================================== */
+========================================================= */
 
 const hamburger =
-document.querySelector(
-    ".hamburger"
-);
+    document.getElementById("hamburger");
 
 const navMenu =
-document.querySelector(
-    ".nav-menu"
-);
+    document.getElementById("navMenu");
 
 
 hamburger.addEventListener(
     "click",
-    () => {
+    function() {
 
-        hamburger.classList.toggle(
-            "active"
-        );
+        hamburger.classList.toggle("active");
 
-        navMenu.classList.toggle(
-            "active"
-        );
+        navMenu.classList.toggle("active");
 
     }
 );
 
 
 document
-.querySelectorAll(
-    ".nav-menu a"
-)
-.forEach(link => {
+    .querySelectorAll(".nav-menu a")
+    .forEach(function(link) {
 
-    link.addEventListener(
-        "click",
-        () => {
+        link.addEventListener(
+            "click",
+            function() {
 
-            hamburger.classList.remove(
-                "active"
-            );
+                hamburger.classList.remove("active");
 
-            navMenu.classList.remove(
-                "active"
-            );
+                navMenu.classList.remove("active");
 
-        }
-    );
+            }
+        );
 
-});
+    });
 
 
 
-/* =====================================================
-   BACKGROUND PARTICLES
-===================================================== */
+/* =========================================================
+   PARTICLES
+========================================================= */
 
-const particleContainer =
-document.getElementById(
-    "particles"
-);
+const particles =
+    document.getElementById("particles");
 
 
-for(
+for (
     let i = 0;
-    i < 80;
+    i < 50;
     i++
-){
+) {
 
     const particle =
-    document.createElement(
-        "div"
-    );
+        document.createElement("div");
 
     particle.className =
-    "particle";
-
+        "particle";
 
     particle.style.left =
-    Math.random() * 100 + "%";
-
+        Math.random() * 100 + "%";
 
     particle.style.top =
-    Math.random() * 100 + "%";
-
+        Math.random() * 100 + "%";
 
     const size =
-    Math.random() * 3 + 1;
-
+        Math.random() * 3 + 1;
 
     particle.style.width =
-    size + "px";
+        size + "px";
 
     particle.style.height =
-    size + "px";
+        size + "px";
 
-
-    particleContainer.appendChild(
+    particles.appendChild(
         particle
     );
-
-
-    animateParticle(
-        particle
-    );
-
-}
-
-
-function animateParticle(
-    particle
-){
-
-    const duration =
-    Math.random() * 6000 + 3000;
-
-
-    const x =
-    (Math.random() - 0.5) * 150;
-
-
-    const y =
-    -Math.random() * 200;
 
 
     particle.animate(
-
         [
-
             {
-
-                transform:
-                "translate(0,0)",
-
+                transform: "translateY(0)",
                 opacity: 0
-
             },
 
             {
-
                 transform:
-                `translate(${x}px,${y}px)`,
-
-                opacity: 0.8
-
+                    `translateY(-${100 + Math.random()*200}px)`,
+                opacity: .7
             },
 
             {
-
                 transform:
-                `translate(${x*2}px,${y*2}px)`,
-
+                    `translateY(-${250 + Math.random()*300}px)`,
                 opacity: 0
-
             }
-
         ],
-
         {
-
             duration:
-            duration,
+                4000 + Math.random() * 5000,
 
-            iterations:
-            Infinity,
+            iterations: Infinity,
 
             delay:
-            Math.random() * 5000
-
+                Math.random() * 4000
         }
-
     );
 
 }
 
 
 
-/* =====================================================
+/* =========================================================
    SCROLL REVEAL
-===================================================== */
+========================================================= */
 
-const observer =
-new IntersectionObserver(
+const revealObserver =
+    new IntersectionObserver(
+        function(entries) {
 
-    entries => {
+            entries.forEach(
+                function(entry) {
 
-        entries.forEach(
-            entry => {
+                    if (
+                        entry.isIntersecting
+                    ) {
 
-                if(
-                    entry.isIntersecting
-                ){
+                        entry.target.classList.add(
+                            "active"
+                        );
 
-                    entry.target.classList.add(
-                        "active"
-                    );
+                    }
 
                 }
+            );
 
-            }
-        );
-
-    },
-
-    {
-        threshold: 0.15
-    }
-
-);
+        },
+        {
+            threshold: .12
+        }
+    );
 
 
 document
-.querySelectorAll(
-    ".reveal"
-)
-.forEach(
-    element => {
+    .querySelectorAll(".reveal")
+    .forEach(
+        function(element) {
 
-        observer.observe(
-            element
-        );
+            revealObserver.observe(
+                element
+            );
 
-    }
-);
+        }
+    );
 
 
 
-/* =====================================================
+/* =========================================================
    STUDENT FORM
-===================================================== */
+========================================================= */
 
-const form =
-document.getElementById(
-    "studentForm"
-);
+const studentForm =
+    document.getElementById(
+        "studentForm"
+    );
 
 
-form.addEventListener(
+studentForm.addEventListener(
     "submit",
-    function(event){
+    function(event) {
 
         event.preventDefault();
 
 
         const name =
-        document.getElementById(
-            "name"
-        ).value;
+            document.getElementById(
+                "name"
+            ).value;
 
 
         alert(
@@ -2872,70 +2465,77 @@ form.addEventListener(
         );
 
 
-        form.reset();
+        studentForm.reset();
 
     }
 );
 
 
 
-/* =====================================================
+/* =========================================================
    PHOTO SLIDER
-===================================================== */
+========================================================= */
 
 const galleryTrack =
-document.getElementById(
-    "galleryTrack"
-);
+    document.getElementById(
+        "galleryTrack"
+    );
 
 const galleryCards =
-document.querySelectorAll(
-    ".gallery-card"
-);
+    document.querySelectorAll(
+        ".gallery-card"
+    );
 
 const dotsContainer =
-document.getElementById(
-    "sliderDots"
-);
+    document.getElementById(
+        "sliderDots"
+    );
 
 const nextBtn =
-document.getElementById(
-    "nextBtn"
-);
+    document.getElementById(
+        "nextBtn"
+    );
 
 const prevBtn =
-document.getElementById(
-    "prevBtn"
-);
+    document.getElementById(
+        "prevBtn"
+    );
+
+const gallerySlider =
+    document.getElementById(
+        "gallerySlider"
+    );
 
 
 let galleryIndex = 0;
 
-let autoSlide;
+let autoSlide = null;
 
 
 
-/* =====================================================
+/* =========================================================
    VISIBLE CARDS
-===================================================== */
+========================================================= */
 
-function getVisibleCards(){
+function getVisibleCards() {
 
-    if(
-        window.innerWidth <= 550
-    ){
+    const width =
+        window.innerWidth;
+
+
+    if (width <= 700) {
 
         return 1;
 
     }
 
-    if(
-        window.innerWidth <= 850
-    ){
+
+    if (width <= 1000) {
 
         return 2;
 
     }
+
 
     return 3;
 
@@ -2943,57 +2543,55 @@ function getVisibleCards(){
 
 
 
-/* =====================================================
+/* =========================================================
    TOTAL SLIDES
-===================================================== */
+========================================================= */
 
-function getTotalSlides(){
+function getTotalSlides() {
 
     return Math.max(
-
         1,
-
         galleryCards.length -
         getVisibleCards() +
         1
-
     );
 
 }
 
 
 
-/* =====================================================
+/* =========================================================
    CREATE DOTS
-===================================================== */
+========================================================= */
 
-function createDots(){
+function createDots() {
 
     dotsContainer.innerHTML = "";
 
+
     const total =
-    getTotalSlides();
+        getTotalSlides();
 
 
-    for(
+    for (
         let i = 0;
         i < total;
         i++
-    ){
+    ) {
 
         const dot =
-        document.createElement(
-            "div"
-        );
+            document.createElement(
+                "div"
+            );
 
 
         dot.className =
-        "slider-dot";
+            "slider-dot";
 
 
-        if(
+        if (
             i === galleryIndex
-        ){
+        ) {
 
             dot.classList.add(
                 "active"
@@ -3004,7 +2602,7 @@ function createDots(){
 
         dot.addEventListener(
             "click",
-            () => {
+            function() {
 
                 galleryIndex = i;
 
@@ -3026,37 +2624,45 @@ function createDots(){
 
 
 
-/* =====================================================
-   UPDATE SLIDER
-===================================================== */
+/* =========================================================
+   UPDATE GALLERY
+========================================================= */
 
-function updateGallery(){
+function updateGallery() {
+
+    if (
+        !galleryCards.length
+    ) {
+        return;
+    }
+
 
     const cardWidth =
-    galleryCards[0]
-    .offsetWidth;
+        galleryCards[0]
+            .getBoundingClientRect()
+            .width;
 
 
     const gap = 20;
 
 
     const move =
-    galleryIndex *
-    (cardWidth + gap);
+        galleryIndex *
+        (cardWidth + gap);
 
 
     galleryTrack.style.transform =
-    `translateX(-${move}px)`;
+        `translate3d(-${move}px,0,0)`;
 
 
     const dots =
-    document.querySelectorAll(
-        ".slider-dot"
-    );
+        document.querySelectorAll(
+            ".slider-dot"
+        );
 
 
     dots.forEach(
-        (dot,index) => {
+        function(dot, index) {
 
             dot.classList.toggle(
                 "active",
@@ -3070,36 +2676,36 @@ function updateGallery(){
 
 
 
-/* =====================================================
-   MOVE SLIDER
-===================================================== */
+/* =========================================================
+   MOVE GALLERY
+========================================================= */
 
 function moveGallery(
     direction
-){
+) {
 
     const total =
-    getTotalSlides();
+        getTotalSlides();
 
 
     galleryIndex += direction;
 
 
-    if(
+    if (
         galleryIndex >= total
-    ){
+    ) {
 
         galleryIndex = 0;
 
     }
 
 
-    if(
+    if (
         galleryIndex < 0
-    ){
+    ) {
 
         galleryIndex =
-        total - 1;
+            total - 1;
 
     }
 
@@ -3110,60 +2716,31 @@ function moveGallery(
 
 
 
-/* =====================================================
-   NEXT BUTTON
-===================================================== */
-
-nextBtn.addEventListener(
-    "click",
-    () => {
-
-        moveGallery(1);
-
-        restartAutoSlide();
-
-    }
-);
-
-
-
-/* =====================================================
-   PREVIOUS BUTTON
-===================================================== */
-
-prevBtn.addEventListener(
-    "click",
-    () => {
-
-        moveGallery(-1);
-
-        restartAutoSlide();
-
-    }
-);
-
-
-
-/* =====================================================
+/* =========================================================
    AUTO SLIDE
-===================================================== */
+========================================================= */
 
-function startAutoSlide(){
+function startAutoSlide() {
+
+    clearInterval(
+        autoSlide
+    );
+
 
     autoSlide =
-    setInterval(
-        () => {
+        setInterval(
+            function() {
 
-            moveGallery(1);
+                moveGallery(1);
 
-        },
-        3500
-    );
+            },
+            3500
+        );
 
 }
 
 
-function restartAutoSlide(){
+function restartAutoSlide() {
 
     clearInterval(
         autoSlide
@@ -3175,19 +2752,42 @@ function restartAutoSlide(){
 
 
 
-/* =====================================================
-   PAUSE ON MOUSE
-===================================================== */
+/* =========================================================
+   BUTTONS
+========================================================= */
 
-const gallerySlider =
-document.querySelector(
-    ".gallery-slider"
+nextBtn.addEventListener(
+    "click",
+    function() {
+
+        moveGallery(1);
+
+        restartAutoSlide();
+
+    }
 );
 
 
+prevBtn.addEventListener(
+    "click",
+    function() {
+
+        moveGallery(-1);
+
+        restartAutoSlide();
+
+    }
+);
+
+
+
+/* =========================================================
+   MOUSE PAUSE
+========================================================= */
+
 gallerySlider.addEventListener(
     "mouseenter",
-    () => {
+    function() {
 
         clearInterval(
             autoSlide
@@ -3199,7 +2799,7 @@ gallerySlider.addEventListener(
 
 gallerySlider.addEventListener(
     "mouseleave",
-    () => {
+    function() {
 
         startAutoSlide();
 
@@ -3208,9 +2808,9 @@ gallerySlider.addEventListener(
 
 
 
-/* =====================================================
+/* =========================================================
    TOUCH SWIPE
-===================================================== */
+========================================================= */
 
 let touchStartX = 0;
 
@@ -3219,87 +2819,116 @@ let touchEndX = 0;
 
 gallerySlider.addEventListener(
     "touchstart",
-    function(event){
+    function(event) {
 
         touchStartX =
-        event.changedTouches[0].screenX;
+            event.changedTouches[0]
+                .screenX;
 
+        clearInterval(
+            autoSlide
+        );
+
+    },
+    {
+        passive: true
     }
 );
 
 
 gallerySlider.addEventListener(
     "touchend",
-    function(event){
+    function(event) {
 
         touchEndX =
-        event.changedTouches[0].screenX;
+            event.changedTouches[0]
+                .screenX;
 
 
-        handleSwipe();
+        const distance =
+            touchStartX -
+            touchEndX;
 
+
+        if (
+            Math.abs(distance) > 50
+        ) {
+
+            if (
+                distance > 0
+            ) {
+
+                moveGallery(1);
+
+            } else {
+
+                moveGallery(-1);
+
+            }
+
+        }
+
+
+        startAutoSlide();
+
+    },
+    {
+        passive: true
     }
 );
 
 
-function handleSwipe(){
 
-    const distance =
-    touchStartX -
-    touchEndX;
+/* =========================================================
+   RESIZE
+========================================================= */
 
+let resizeTimer;
 
-    if(
-        Math.abs(distance) < 50
-    ){
-
-        return;
-
-    }
-
-
-    if(
-        distance > 0
-    ){
-
-        moveGallery(1);
-
-    }
-    else {
-
-        moveGallery(-1);
-
-    }
-
-
-    restartAutoSlide();
-
-}
-
-
-
-/* =====================================================
-   WINDOW RESIZE
-===================================================== */
 
 window.addEventListener(
     "resize",
-    () => {
+    function() {
 
-        galleryIndex = 0;
+        clearTimeout(
+            resizeTimer
+        );
 
-        createDots();
 
-        updateGallery();
+        resizeTimer =
+            setTimeout(
+                function() {
+
+                    const total =
+                        getTotalSlides();
+
+
+                    if (
+                        galleryIndex >= total
+                    ) {
+
+                        galleryIndex =
+                            total - 1;
+
+                    }
+
+
+                    createDots();
+
+                    updateGallery();
+
+                },
+                150
+            );
 
     }
 );
 
 
 
-/* =====================================================
-   START SLIDER
-===================================================== */
+/* =========================================================
+   INITIALIZE
+========================================================= */
 
 createDots();
 
@@ -3310,7 +2939,5 @@ startAutoSlide();
 
 </script>
 
-
 </body>
-
 </html>
