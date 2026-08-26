@@ -1,0 +1,3316 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>SFI | Students' Federation of India</title>
+
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+
+    --red: #e50914;
+    --dark-red: #a00000;
+    --black: #070707;
+    --dark: #111111;
+    --white: #ffffff;
+    --light: #f5f5f5;
+    --gray: #777;
+
+}
+
+body {
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    background: var(--black);
+
+    color: white;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =====================================================
+   PARTICLES
+===================================================== */
+
+#particles {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -2;
+
+    pointer-events: none;
+
+}
+
+.particle {
+
+    position: absolute;
+
+    width: 3px;
+
+    height: 3px;
+
+    background: #ff3030;
+
+    border-radius: 50%;
+
+    box-shadow:
+    0 0 10px red;
+
+    opacity: 0.7;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding:
+    0 6%;
+
+    background:
+    rgba(5,5,5,0.90);
+
+    -webkit-backdrop-filter:
+    blur(15px);
+
+    backdrop-filter:
+    blur(15px);
+
+    border-bottom:
+    1px solid
+    rgba(255,0,0,0.25);
+
+    z-index: 1000;
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    text-decoration: none;
+
+    color: white;
+
+}
+
+.logo-circle {
+
+    width: 45px;
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border:
+    2px solid #ff2020;
+
+    font-size: 19px;
+
+    font-weight: 900;
+
+    box-shadow:
+    0 0 10px red,
+    0 0 25px rgba(255,0,0,0.5);
+
+    animation:
+    logoPulse 2s infinite alternate;
+
+}
+
+@keyframes logoPulse {
+
+    from {
+
+        box-shadow:
+        0 0 8px red;
+
+    }
+
+    to {
+
+        box-shadow:
+        0 0 12px red,
+        0 0 35px red;
+
+    }
+
+}
+
+
+/* =====================================================
+   DESKTOP NAVIGATION
+===================================================== */
+
+.nav-menu {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    list-style: none;
+
+}
+
+.nav-menu a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    position: relative;
+
+    transition: 0.3s;
+
+}
+
+.nav-menu a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -8px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: red;
+
+    transition: 0.3s;
+
+}
+
+.nav-menu a:hover {
+
+    color: #ff3030;
+
+}
+
+.nav-menu a:hover::after {
+
+    width: 100%;
+
+}
+
+
+/* =====================================================
+   HAMBURGER
+===================================================== */
+
+.hamburger {
+
+    display: none;
+
+    width: 42px;
+
+    height: 42px;
+
+    border:
+    1px solid
+    rgba(255,0,0,0.5);
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+}
+
+.hamburger span {
+
+    display: block;
+
+    width: 23px;
+
+    height: 2px;
+
+    background: white;
+
+    transition: 0.3s;
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    padding:
+    120px 20px 70px;
+
+    background:
+
+    radial-gradient(
+        circle at center,
+        rgba(130,0,0,0.4),
+        transparent 50%
+    );
+
+}
+
+
+/* Hero circles */
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    border-radius: 50%;
+
+    border:
+    1px solid
+    rgba(255,0,0,0.25);
+
+    animation:
+    rotate 15s linear infinite;
+
+}
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 700px;
+
+    height: 700px;
+
+    border-radius: 50%;
+
+    border:
+    1px solid
+    rgba(255,0,0,0.1);
+
+    animation:
+    rotateReverse 20s linear infinite;
+
+}
+
+@keyframes rotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes rotateReverse {
+
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+
+}
+
+
+/* =====================================================
+   HERO CONTENT
+===================================================== */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =====================================================
+   SFI ANIMATION
+===================================================== */
+
+.sfi-title {
+
+    font-size:
+    clamp(
+        100px,
+        20vw,
+        240px
+    );
+
+    font-weight: 1000;
+
+    letter-spacing: 15px;
+
+    line-height: 0.9;
+
+    background:
+
+    linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #ffffff 30%,
+        #ff3030 55%,
+        #a00000 100%
+    );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    filter:
+    drop-shadow(0 0 15px red);
+
+    animation:
+    titleReveal 2s ease,
+    titleGlow 2s infinite alternate;
+
+}
+
+@keyframes titleReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+        scale(0.4);
+
+        letter-spacing:
+        80px;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+        scale(1);
+
+        letter-spacing:
+        15px;
+
+    }
+
+}
+
+@keyframes titleGlow {
+
+    from {
+
+        filter:
+        drop-shadow(0 0 5px red);
+
+    }
+
+    to {
+
+        filter:
+        drop-shadow(0 0 20px red)
+        drop-shadow(0 0 40px
+        rgba(255,0,0,0.5));
+
+    }
+
+}
+
+
+/* =====================================================
+   HERO TEXT
+===================================================== */
+
+.hero h2 {
+
+    font-size:
+    clamp(18px,3vw,32px);
+
+    margin-top: 25px;
+
+    letter-spacing: 4px;
+
+}
+
+.hero p {
+
+    max-width: 700px;
+
+    margin:
+    20px auto;
+
+    color: #ccc;
+
+    line-height: 1.8;
+
+    font-size: 16px;
+
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.btn {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding:
+    13px 28px;
+
+    color: white;
+
+    text-decoration: none;
+
+    border:
+    1px solid red;
+
+    border-radius: 30px;
+
+    background:
+    rgba(255,0,0,0.08);
+
+    transition: 0.3s;
+
+}
+
+.btn:hover {
+
+    background: red;
+
+    box-shadow:
+    0 0 15px red,
+    0 0 35px
+    rgba(255,0,0,0.5);
+
+    transform:
+    translateY(-3px);
+
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+section {
+
+    padding:
+    100px 7%;
+
+}
+
+.section-title {
+
+    text-align: center;
+
+    margin-bottom: 55px;
+
+}
+
+.section-title h2 {
+
+    font-size:
+    clamp(30px,5vw,50px);
+
+    margin-bottom: 15px;
+
+}
+
+.section-title span {
+
+    color: #ff3030;
+
+}
+
+.section-title p {
+
+    color: #aaa;
+
+}
+
+
+/* =====================================================
+   STUDENT INFO
+===================================================== */
+
+.students-section {
+
+    background:
+    linear-gradient(
+        180deg,
+        #080808,
+        #111111
+    );
+
+}
+
+.cards {
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap: 25px;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+}
+
+.card {
+
+    padding:
+    35px 28px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #191919,
+        #0c0c0c
+    );
+
+    border:
+    1px solid
+    rgba(255,0,0,0.2);
+
+    border-radius: 15px;
+
+    transition: 0.4s;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -100%;
+
+    width: 100%;
+
+    height: 2px;
+
+    background: red;
+
+    transition: 0.5s;
+
+}
+
+.card:hover::before {
+
+    left: 100%;
+
+}
+
+.card:hover {
+
+    transform:
+    translateY(-10px);
+
+    border-color: red;
+
+    box-shadow:
+    0 15px 40px
+    rgba(255,0,0,0.15);
+
+}
+
+.card-icon {
+
+    font-size: 42px;
+
+    margin-bottom: 20px;
+
+}
+
+.card h3 {
+
+    margin-bottom: 15px;
+
+    font-size: 23px;
+
+}
+
+.card p {
+
+    color: #aaa;
+
+    line-height: 1.7;
+
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about {
+
+    background: #f5f5f5;
+
+    color: #111;
+
+}
+
+.about-container {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap: 50px;
+
+    align-items: center;
+
+}
+
+.about h2 {
+
+    font-size: 45px;
+
+    margin-bottom: 20px;
+
+}
+
+.about h2 span {
+
+    color: #d00000;
+
+}
+
+.about p {
+
+    color: #555;
+
+    line-height: 1.9;
+
+    margin-bottom: 15px;
+
+}
+
+.about-box {
+
+    background: #111;
+
+    padding: 45px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+    0 20px 50px
+    rgba(0,0,0,0.2);
+
+}
+
+.about-box .big {
+
+    font-size: 100px;
+
+    font-weight: 1000;
+
+    color: red;
+
+    text-shadow:
+    0 0 20px red;
+
+}
+
+
+/* =====================================================
+   SFI SECTION
+===================================================== */
+
+.sfi-section {
+
+    background:
+    radial-gradient(
+        circle at center,
+        #350000,
+        #090909 65%
+    );
+
+    text-align: center;
+
+}
+
+.sfi-big {
+
+    font-size:
+    clamp(80px,15vw,180px);
+
+    font-weight: 1000;
+
+    color: white;
+
+    text-shadow:
+    0 0 10px red,
+    0 0 30px red,
+    0 0 70px red;
+
+    margin-bottom: 25px;
+
+}
+
+.sfi-description {
+
+    max-width: 850px;
+
+    margin: auto;
+
+    color: #ccc;
+
+    line-height: 1.9;
+
+    font-size: 17px;
+
+}
+
+
+/* =====================================================
+   EVENTS
+===================================================== */
+
+.events {
+
+    background: #0d0d0d;
+
+}
+
+.event-grid {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap: 25px;
+
+}
+
+.event {
+
+    padding: 30px;
+
+    border-left:
+    3px solid red;
+
+    background: #161616;
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+
+}
+
+.event:hover {
+
+    transform:
+    translateX(8px);
+
+    background: #1d1d1d;
+
+}
+
+.event-date {
+
+    color: red;
+
+    font-weight: bold;
+
+    margin-bottom: 12px;
+
+}
+
+.event h3 {
+
+    margin-bottom: 10px;
+
+}
+
+.event p {
+
+    color: #aaa;
+
+    line-height: 1.6;
+
+}
+
+
+/* =====================================================
+   PHOTO GALLERY
+===================================================== */
+
+.gallery-section {
+
+    padding:
+    100px 7%;
+
+    background:
+
+    linear-gradient(
+        180deg,
+        #080808,
+        #170000,
+        #080808
+    );
+
+    overflow: hidden;
+
+}
+
+.gallery-slider {
+
+    position: relative;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+}
+
+.gallery-track {
+
+    display: flex;
+
+    gap: 20px;
+
+    transition:
+    transform 0.8s
+    cubic-bezier(
+        0.65,
+        0,
+        0.35,
+        1
+    );
+
+}
+
+.gallery-card {
+
+    min-width:
+    calc(33.333% - 14px);
+
+    background: #151515;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    border:
+    1px solid
+    rgba(255,0,0,0.25);
+
+    box-shadow:
+    0 10px 35px
+    rgba(0,0,0,0.35);
+
+    transition: 0.4s;
+
+}
+
+.gallery-card:hover {
+
+    transform:
+    translateY(-8px);
+
+    border-color: red;
+
+    box-shadow:
+    0 15px 45px
+    rgba(255,0,0,0.25);
+
+}
+
+.gallery-card img {
+
+    width: 100%;
+
+    height: 260px;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: 0.6s;
+
+}
+
+.gallery-card:hover img {
+
+    transform:
+    scale(1.06);
+
+}
+
+.gallery-info {
+
+    padding: 18px;
+
+}
+
+.gallery-info h3 {
+
+    color: white;
+
+    margin-bottom: 8px;
+
+    font-size: 19px;
+
+}
+
+.gallery-info p {
+
+    color: #999;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =====================================================
+   SLIDER BUTTONS
+===================================================== */
+
+.slider-btn {
+
+    position: absolute;
+
+    top: 42%;
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    border:
+    1px solid
+    rgba(255,255,255,0.4);
+
+    background:
+    rgba(0,0,0,0.65);
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    transition: 0.3s;
+
+}
+
+.slider-btn:hover {
+
+    background: red;
+
+    box-shadow:
+    0 0 20px red;
+
+}
+
+.slider-prev {
+
+    left: 15px;
+
+}
+
+.slider-next {
+
+    right: 15px;
+
+}
+
+
+/* =====================================================
+   SLIDER DOTS
+===================================================== */
+
+.slider-dots {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 25px;
+
+}
+
+.slider-dot {
+
+    width: 9px;
+
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #555;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+.slider-dot.active {
+
+    width: 28px;
+
+    border-radius: 10px;
+
+    background: red;
+
+    box-shadow:
+    0 0 10px red;
+
+}
+
+
+/* =====================================================
+   STUDENT FORM
+===================================================== */
+
+.form-section {
+
+    background:
+    linear-gradient(
+        135deg,
+        #180000,
+        #080808
+    );
+
+}
+
+.form-container {
+
+    max-width: 800px;
+
+    margin: auto;
+
+    background:
+    rgba(255,255,255,0.04);
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    border:
+    1px solid
+    rgba(255,0,0,0.2);
+
+}
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap: 20px;
+
+}
+
+.input-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+.input-group.full {
+
+    grid-column:
+    1 / -1;
+
+}
+
+label {
+
+    color: #ddd;
+
+    font-size: 14px;
+
+}
+
+input,
+select,
+textarea {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 8px;
+
+    border:
+    1px solid #333;
+
+    background: #0b0b0b;
+
+    color: white;
+
+    outline: none;
+
+    transition: 0.3s;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+
+    border-color: red;
+
+    box-shadow:
+    0 0 10px
+    rgba(255,0,0,0.15);
+
+}
+
+textarea {
+
+    min-height: 120px;
+
+    resize: vertical;
+
+}
+
+.submit-btn {
+
+    margin-top: 25px;
+
+    padding:
+    14px 35px;
+
+    background: red;
+
+    border: none;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+.submit-btn:hover {
+
+    background: #c00000;
+
+    box-shadow:
+    0 0 20px red;
+
+    transform:
+    scale(1.04);
+
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact {
+
+    background: #f5f5f5;
+
+    color: #111;
+
+}
+
+.contact-grid {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap: 25px;
+
+}
+
+.contact-card {
+
+    text-align: center;
+
+    padding:
+    35px 20px;
+
+    background: white;
+
+    border-radius: 15px;
+
+    box-shadow:
+    0 10px 30px
+    rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+
+}
+
+.contact-card:hover {
+
+    transform:
+    translateY(-7px);
+
+}
+
+.contact-icon {
+
+    font-size: 35px;
+
+    margin-bottom: 15px;
+
+}
+
+.contact-card p {
+
+    color: #666;
+
+    margin-top: 8px;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    padding:
+    35px 20px;
+
+    text-align: center;
+
+    background: #050505;
+
+    border-top:
+    1px solid
+    rgba(255,0,0,0.2);
+
+}
+
+footer h3 {
+
+    color: red;
+
+    margin-bottom: 10px;
+
+}
+
+footer p {
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+    translateY(50px);
+
+    transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+
+}
+
+.reveal.active {
+
+    opacity: 1;
+
+    transform:
+    translateY(0);
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:850px) {
+
+    .hamburger {
+
+        display: flex;
+
+    }
+
+    .nav-menu {
+
+        position: fixed;
+
+        top: 75px;
+
+        right: -100%;
+
+        width: 280px;
+
+        height:
+        calc(100vh - 75px);
+
+        background:
+        rgba(10,10,10,0.98);
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding:
+        40px 30px;
+
+        gap: 25px;
+
+        transition: 0.4s;
+
+        border-left:
+        1px solid
+        rgba(255,0,0,0.3);
+
+    }
+
+    .nav-menu.active {
+
+        right: 0;
+
+    }
+
+    .hamburger.active
+    span:nth-child(1) {
+
+        transform:
+        rotate(45deg)
+        translate(5px,5px);
+
+    }
+
+    .hamburger.active
+    span:nth-child(2) {
+
+        opacity: 0;
+
+    }
+
+    .hamburger.active
+    span:nth-child(3) {
+
+        transform:
+        rotate(-45deg)
+        translate(5px,-5px);
+
+    }
+
+    .cards,
+    .event-grid,
+    .contact-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .about-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .input-group.full {
+
+        grid-column: auto;
+
+    }
+
+    .hero::before {
+
+        width: 300px;
+        height: 300px;
+
+    }
+
+    .hero::after {
+
+        width: 400px;
+        height: 400px;
+
+    }
+
+    .gallery-card {
+
+        min-width:
+        calc(50% - 10px);
+
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:550px) {
+
+    header {
+
+        padding:
+        0 20px;
+
+    }
+
+    section {
+
+        padding:
+        75px 20px;
+
+    }
+
+    .form-container {
+
+        padding:
+        25px 18px;
+
+    }
+
+    .sfi-title {
+
+        letter-spacing:
+        5px;
+
+    }
+
+    .gallery-card {
+
+        min-width: 100%;
+
+    }
+
+    .gallery-card img {
+
+        height: 230px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     PARTICLES
+===================================================== -->
+
+<div id="particles"></div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+
+<a href="#home"
+class="logo">
+
+    <div class="logo-circle">
+        SFI
+    </div>
+
+</a>
+
+
+<nav>
+
+<ul class="nav-menu">
+
+<li>
+<a href="#home">
+Home
+</a>
+</li>
+
+<li>
+<a href="#students">
+Students Info
+</a>
+</li>
+
+<li>
+<a href="#about">
+About
+</a>
+</li>
+
+<li>
+<a href="#sfi">
+SFI
+</a>
+</li>
+
+<li>
+<a href="#events">
+Events
+</a>
+</li>
+
+<li>
+<a href="#gallery">
+Gallery
+</a>
+</li>
+
+<li>
+<a href="#contact">
+Contact
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+
+<div class="hamburger">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section
+class="hero"
+id="home">
+
+
+<div class="hero-content">
+
+
+<div class="sfi-title">
+SFI
+</div>
+
+
+<h2>
+Students' Federation of India
+</h2>
+
+
+<p>
+
+विद्यार्थ्यांशी संबंधित माहिती,
+शैक्षणिक उपक्रम, कार्यक्रम
+आणि संघटनेविषयी सार्वजनिक
+माहिती एकाच ठिकाणी.
+
+</p>
+
+
+<a
+href="#students"
+class="btn">
+
+Students Information
+
+</a>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     STUDENTS INFO
+===================================================== -->
+
+<section
+class="students-section"
+id="students">
+
+
+<div class="section-title reveal">
+
+<h2>
+
+Students
+<span>Info</span>
+
+</h2>
+
+<p>
+विद्यार्थ्यांसाठी उपयुक्त माहिती
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card reveal">
+
+<div class="card-icon">
+🎓
+</div>
+
+<h3>
+Education
+</h3>
+
+<p>
+
+विद्यार्थ्यांसाठी शैक्षणिक
+माहिती, अभ्यासक्रम आणि
+विविध शैक्षणिक संसाधने.
+
+</p>
+
+</div>
+
+
+
+<div class="card reveal">
+
+<div class="card-icon">
+📚
+</div>
+
+<h3>
+Student Resources
+</h3>
+
+<p>
+
+Scholarship, career आणि
+विद्यार्थ्यांना उपयोगी
+असलेल्या विविध संसाधनांची
+माहिती.
+
+</p>
+
+</div>
+
+
+
+<div class="card reveal">
+
+<div class="card-icon">
+🏫
+</div>
+
+<h3>
+Campus Information
+</h3>
+
+<p>
+
+महाविद्यालयीन उपक्रम,
+शैक्षणिक कार्यक्रम आणि
+campus संबंधित माहिती.
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+class="about"
+id="about">
+
+
+<div
+class="about-container">
+
+
+<div class="reveal">
+
+<h2>
+
+About
+<span>SFI</span>
+
+</h2>
+
+
+<p>
+
+Students' Federation of India
+या नावाने ओळखल्या जाणाऱ्या
+विद्यार्थी संघटनेविषयी अधिकृत
+आणि अचूक माहिती, इतिहास,
+उपक्रम आणि कार्यक्रम येथे
+प्रकाशित करता येतील.
+
+</p>
+
+
+<p>
+
+या website चा उद्देश
+विद्यार्थ्यांना संघटनेशी संबंधित
+सार्वजनिक माहिती एका सोप्या
+आणि व्यवस्थित स्वरूपात
+उपलब्ध करून देणे हा आहे.
+
+</p>
+
+</div>
+
+
+
+<div class="about-box reveal">
+
+<div class="big">
+SFI
+</div>
+
+<p
+style="color:#aaa;">
+
+Students' Federation of India
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SFI
+===================================================== -->
+
+<section
+class="sfi-section"
+id="sfi">
+
+
+<div
+class="section-title reveal">
+
+<h2>
+
+About
+<span>SFI</span>
+
+</h2>
+
+</div>
+
+
+<div
+class="sfi-big reveal">
+
+SFI
+
+</div>
+
+
+<p
+class="sfi-description reveal">
+
+येथे SFI चा इतिहास,
+स्थापना, उद्दिष्टे,
+संघटनेची रचना,
+सार्वजनिक उपक्रम,
+कार्यक्रम आणि अधिकृत
+संपर्क माहिती यांचा
+सविस्तर मजकूर ठेवता येईल.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     EVENTS
+===================================================== -->
+
+<section
+class="events"
+id="events">
+
+
+<div
+class="section-title reveal">
+
+<h2>
+
+Events &
+<span>Activities</span>
+
+</h2>
+
+<p>
+आगामी आणि मागील कार्यक्रम
+</p>
+
+</div>
+
+
+<div
+class="event-grid">
+
+
+<div class="event reveal">
+
+<div class="event-date">
+EVENT 01
+</div>
+
+<h3>
+Educational Program
+</h3>
+
+<p>
+
+कार्यक्रमाची तारीख,
+वेळ, ठिकाण आणि
+सार्वजनिक माहिती
+येथे लिहा.
+
+</p>
+
+</div>
+
+
+
+<div class="event reveal">
+
+<div class="event-date">
+EVENT 02
+</div>
+
+<h3>
+Student Seminar
+</h3>
+
+<p>
+
+विद्यार्थ्यांसाठी आयोजित
+seminar ची माहिती
+येथे देता येईल.
+
+</p>
+
+</div>
+
+
+
+<div class="event reveal">
+
+<div class="event-date">
+EVENT 03
+</div>
+
+<h3>
+Campus Activity
+</h3>
+
+<p>
+
+Campus मध्ये होणाऱ्या
+सार्वजनिक कार्यक्रमांची
+माहिती येथे प्रकाशित करा.
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PHOTO GALLERY
+===================================================== -->
+
+<section
+class="gallery-section"
+id="gallery">
+
+
+<div
+class="section-title reveal">
+
+<h2>
+
+Student
+<span>Activities</span>
+
+</h2>
+
+<p>
+
+विविध कार्यक्रमांतील
+काही क्षण
+
+</p>
+
+</div>
+
+
+
+<div class="gallery-slider">
+
+
+<button
+class="slider-btn slider-prev"
+id="prevBtn">
+
+❮
+
+</button>
+
+
+
+<div
+class="gallery-track"
+id="galleryTrack">
+
+
+<!-- PHOTO 1 -->
+
+<div
+class="gallery-card">
+
+<img
+src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80"
+alt="Student Activity">
+
+<div class="gallery-info">
+
+<h3>
+विद्यार्थी कार्यक्रम
+</h3>
+
+<p>
+कार्यक्रमातील विद्यार्थ्यांचे
+काही क्षण.
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- PHOTO 2 -->
+
+<div
+class="gallery-card">
+
+<img
+src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=80"
+alt="Student Event">
+
+<div class="gallery-info">
+
+<h3>
+शैक्षणिक उपक्रम
+</h3>
+
+<p>
+शैक्षणिक उपक्रमातील
+विद्यार्थ्यांचा सहभाग.
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- PHOTO 3 -->
+
+<div
+class="gallery-card">
+
+<img
+src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=900&q=80"
+alt="Student Program">
+
+<div class="gallery-info">
+
+<h3>
+विद्यार्थी मेळावा
+</h3>
+
+<p>
+विद्यार्थी कार्यक्रमातील
+काही आठवणी.
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- PHOTO 4 -->
+
+<div
+class="gallery-card">
+
+<img
+src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80"
+alt="Campus Activity">
+
+<div class="gallery-info">
+
+<h3>
+Campus Activity
+</h3>
+
+<p>
+Campus मधील कार्यक्रमाचे
+काही क्षण.
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- PHOTO 5 -->
+
+<div
+class="gallery-card">
+
+<img
+src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=80"
+alt="Student Seminar">
+
+<div class="gallery-info">
+
+<h3>
+Student Seminar
+</h3>
+
+<p>
+विद्यार्थ्यांच्या seminar
+मधील काही क्षण.
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- PHOTO 6 -->
+
+<div
+class="gallery-card">
+
+<img
+src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=900&q=80"
+alt="Student Activity">
+
+<div class="gallery-info">
+
+<h3>
+विद्यार्थी उपक्रम
+</h3>
+
+<p>
+विविध उपक्रमांतील
+विद्यार्थ्यांचे क्षण.
+</p>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+<button
+class="slider-btn slider-next"
+id="nextBtn">
+
+❯
+
+</button>
+
+
+</div>
+
+
+
+<div
+class="slider-dots"
+id="sliderDots">
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     STUDENT INFORMATION FORM
+===================================================== -->
+
+<section
+class="form-section"
+id="student-form">
+
+
+<div
+class="section-title reveal">
+
+<h2>
+
+Student
+<span>Information</span>
+
+</h2>
+
+<p>
+माहिती किंवा संपर्कासाठी form
+</p>
+
+</div>
+
+
+
+<div
+class="form-container reveal">
+
+
+<form
+id="studentForm">
+
+
+<div
+class="form-grid">
+
+
+<div class="input-group">
+
+<label>
+Full Name
+</label>
+
+<input
+type="text"
+id="name"
+placeholder="तुमचे नाव"
+required>
+
+</div>
+
+
+
+<div class="input-group">
+
+<label>
+Email
+</label>
+
+<input
+type="email"
+id="email"
+placeholder="example@email.com"
+required>
+
+</div>
+
+
+
+<div class="input-group">
+
+<label>
+Mobile Number
+</label>
+
+<input
+type="tel"
+id="mobile"
+placeholder="Mobile Number">
+
+</div>
+
+
+
+<div class="input-group">
+
+<label>
+College / University
+</label>
+
+<input
+type="text"
+id="college"
+placeholder="College Name">
+
+</div>
+
+
+
+<div
+class="input-group full">
+
+<label>
+Your Message
+</label>
+
+<textarea
+id="message"
+placeholder="तुमचा संदेश लिहा...">
+</textarea>
+
+</div>
+
+
+</div>
+
+
+<button
+type="submit"
+class="submit-btn">
+
+Submit Information
+
+</button>
+
+
+</form>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section
+class="contact"
+id="contact">
+
+
+<div
+class="section-title reveal">
+
+<h2>
+
+<span>Contact</span>
+Us
+
+</h2>
+
+<p>
+अधिकृत संपर्क माहिती
+</p>
+
+</div>
+
+
+
+<div
+class="contact-grid">
+
+
+<div
+class="contact-card reveal">
+
+<div
+class="contact-icon">
+📧
+</div>
+
+<h3>
+Email
+</h3>
+
+<p>
+your-email@example.com
+</p>
+
+</div>
+
+
+
+<div
+class="contact-card reveal">
+
+<div
+class="contact-icon">
+📞
+</div>
+
+<h3>
+Phone
+</h3>
+
+<p>
++91 XXXXX XXXXX
+</p>
+
+</div>
+
+
+
+<div
+class="contact-card reveal">
+
+<div
+class="contact-icon">
+📍
+</div>
+
+<h3>
+Office
+</h3>
+
+<p>
+तुमचा पत्ता येथे लिहा
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<h3>
+SFI
+</h3>
+
+<p>
+Students' Federation of India
+</p>
+
+<p
+style="margin-top:10px;">
+
+© 2026 SFI.
+All Rights Reserved.
+
+</p>
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   HAMBURGER MENU
+===================================================== */
+
+const hamburger =
+document.querySelector(
+    ".hamburger"
+);
+
+const navMenu =
+document.querySelector(
+    ".nav-menu"
+);
+
+
+hamburger.addEventListener(
+    "click",
+    () => {
+
+        hamburger.classList.toggle(
+            "active"
+        );
+
+        navMenu.classList.toggle(
+            "active"
+        );
+
+    }
+);
+
+
+document
+.querySelectorAll(
+    ".nav-menu a"
+)
+.forEach(link => {
+
+    link.addEventListener(
+        "click",
+        () => {
+
+            hamburger.classList.remove(
+                "active"
+            );
+
+            navMenu.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+});
+
+
+
+/* =====================================================
+   BACKGROUND PARTICLES
+===================================================== */
+
+const particleContainer =
+document.getElementById(
+    "particles"
+);
+
+
+for(
+    let i = 0;
+    i < 80;
+    i++
+){
+
+    const particle =
+    document.createElement(
+        "div"
+    );
+
+    particle.className =
+    "particle";
+
+
+    particle.style.left =
+    Math.random() * 100 + "%";
+
+
+    particle.style.top =
+    Math.random() * 100 + "%";
+
+
+    const size =
+    Math.random() * 3 + 1;
+
+
+    particle.style.width =
+    size + "px";
+
+    particle.style.height =
+    size + "px";
+
+
+    particleContainer.appendChild(
+        particle
+    );
+
+
+    animateParticle(
+        particle
+    );
+
+}
+
+
+function animateParticle(
+    particle
+){
+
+    const duration =
+    Math.random() * 6000 + 3000;
+
+
+    const x =
+    (Math.random() - 0.5) * 150;
+
+
+    const y =
+    -Math.random() * 200;
+
+
+    particle.animate(
+
+        [
+
+            {
+
+                transform:
+                "translate(0,0)",
+
+                opacity: 0
+
+            },
+
+            {
+
+                transform:
+                `translate(${x}px,${y}px)`,
+
+                opacity: 0.8
+
+            },
+
+            {
+
+                transform:
+                `translate(${x*2}px,${y*2}px)`,
+
+                opacity: 0
+
+            }
+
+        ],
+
+        {
+
+            duration:
+            duration,
+
+            iterations:
+            Infinity,
+
+            delay:
+            Math.random() * 5000
+
+        }
+
+    );
+
+}
+
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const observer =
+new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(
+            entry => {
+
+                if(
+                    entry.isIntersecting
+                ){
+
+                    entry.target.classList.add(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+    },
+
+    {
+        threshold: 0.15
+    }
+
+);
+
+
+document
+.querySelectorAll(
+    ".reveal"
+)
+.forEach(
+    element => {
+
+        observer.observe(
+            element
+        );
+
+    }
+);
+
+
+
+/* =====================================================
+   STUDENT FORM
+===================================================== */
+
+const form =
+document.getElementById(
+    "studentForm"
+);
+
+
+form.addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+
+        const name =
+        document.getElementById(
+            "name"
+        ).value;
+
+
+        alert(
+            "धन्यवाद " +
+            name +
+            "! तुमची माहिती प्राप्त झाली."
+        );
+
+
+        form.reset();
+
+    }
+);
+
+
+
+/* =====================================================
+   PHOTO SLIDER
+===================================================== */
+
+const galleryTrack =
+document.getElementById(
+    "galleryTrack"
+);
+
+const galleryCards =
+document.querySelectorAll(
+    ".gallery-card"
+);
+
+const dotsContainer =
+document.getElementById(
+    "sliderDots"
+);
+
+const nextBtn =
+document.getElementById(
+    "nextBtn"
+);
+
+const prevBtn =
+document.getElementById(
+    "prevBtn"
+);
+
+
+let galleryIndex = 0;
+
+let autoSlide;
+
+
+
+/* =====================================================
+   VISIBLE CARDS
+===================================================== */
+
+function getVisibleCards(){
+
+    if(
+        window.innerWidth <= 550
+    ){
+
+        return 1;
+
+    }
+
+    if(
+        window.innerWidth <= 850
+    ){
+
+        return 2;
+
+    }
+
+    return 3;
+
+}
+
+
+
+/* =====================================================
+   TOTAL SLIDES
+===================================================== */
+
+function getTotalSlides(){
+
+    return Math.max(
+
+        1,
+
+        galleryCards.length -
+        getVisibleCards() +
+        1
+
+    );
+
+}
+
+
+
+/* =====================================================
+   CREATE DOTS
+===================================================== */
+
+function createDots(){
+
+    dotsContainer.innerHTML = "";
+
+    const total =
+    getTotalSlides();
+
+
+    for(
+        let i = 0;
+        i < total;
+        i++
+    ){
+
+        const dot =
+        document.createElement(
+            "div"
+        );
+
+
+        dot.className =
+        "slider-dot";
+
+
+        if(
+            i === galleryIndex
+        ){
+
+            dot.classList.add(
+                "active"
+            );
+
+        }
+
+
+        dot.addEventListener(
+            "click",
+            () => {
+
+                galleryIndex = i;
+
+                updateGallery();
+
+                restartAutoSlide();
+
+            }
+        );
+
+
+        dotsContainer.appendChild(
+            dot
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   UPDATE SLIDER
+===================================================== */
+
+function updateGallery(){
+
+    const cardWidth =
+    galleryCards[0]
+    .offsetWidth;
+
+
+    const gap = 20;
+
+
+    const move =
+    galleryIndex *
+    (cardWidth + gap);
+
+
+    galleryTrack.style.transform =
+    `translateX(-${move}px)`;
+
+
+    const dots =
+    document.querySelectorAll(
+        ".slider-dot"
+    );
+
+
+    dots.forEach(
+        (dot,index) => {
+
+            dot.classList.toggle(
+                "active",
+                index === galleryIndex
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   MOVE SLIDER
+===================================================== */
+
+function moveGallery(
+    direction
+){
+
+    const total =
+    getTotalSlides();
+
+
+    galleryIndex += direction;
+
+
+    if(
+        galleryIndex >= total
+    ){
+
+        galleryIndex = 0;
+
+    }
+
+
+    if(
+        galleryIndex < 0
+    ){
+
+        galleryIndex =
+        total - 1;
+
+    }
+
+
+    updateGallery();
+
+}
+
+
+
+/* =====================================================
+   NEXT BUTTON
+===================================================== */
+
+nextBtn.addEventListener(
+    "click",
+    () => {
+
+        moveGallery(1);
+
+        restartAutoSlide();
+
+    }
+);
+
+
+
+/* =====================================================
+   PREVIOUS BUTTON
+===================================================== */
+
+prevBtn.addEventListener(
+    "click",
+    () => {
+
+        moveGallery(-1);
+
+        restartAutoSlide();
+
+    }
+);
+
+
+
+/* =====================================================
+   AUTO SLIDE
+===================================================== */
+
+function startAutoSlide(){
+
+    autoSlide =
+    setInterval(
+        () => {
+
+            moveGallery(1);
+
+        },
+        3500
+    );
+
+}
+
+
+function restartAutoSlide(){
+
+    clearInterval(
+        autoSlide
+    );
+
+    startAutoSlide();
+
+}
+
+
+
+/* =====================================================
+   PAUSE ON MOUSE
+===================================================== */
+
+const gallerySlider =
+document.querySelector(
+    ".gallery-slider"
+);
+
+
+gallerySlider.addEventListener(
+    "mouseenter",
+    () => {
+
+        clearInterval(
+            autoSlide
+        );
+
+    }
+);
+
+
+gallerySlider.addEventListener(
+    "mouseleave",
+    () => {
+
+        startAutoSlide();
+
+    }
+);
+
+
+
+/* =====================================================
+   TOUCH SWIPE
+===================================================== */
+
+let touchStartX = 0;
+
+let touchEndX = 0;
+
+
+gallerySlider.addEventListener(
+    "touchstart",
+    function(event){
+
+        touchStartX =
+        event.changedTouches[0].screenX;
+
+    }
+);
+
+
+gallerySlider.addEventListener(
+    "touchend",
+    function(event){
+
+        touchEndX =
+        event.changedTouches[0].screenX;
+
+
+        handleSwipe();
+
+    }
+);
+
+
+function handleSwipe(){
+
+    const distance =
+    touchStartX -
+    touchEndX;
+
+
+    if(
+        Math.abs(distance) < 50
+    ){
+
+        return;
+
+    }
+
+
+    if(
+        distance > 0
+    ){
+
+        moveGallery(1);
+
+    }
+    else {
+
+        moveGallery(-1);
+
+    }
+
+
+    restartAutoSlide();
+
+}
+
+
+
+/* =====================================================
+   WINDOW RESIZE
+===================================================== */
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        galleryIndex = 0;
+
+        createDots();
+
+        updateGallery();
+
+    }
+);
+
+
+
+/* =====================================================
+   START SLIDER
+===================================================== */
+
+createDots();
+
+updateGallery();
+
+startAutoSlide();
+
+
+</script>
+
+
+</body>
+
+</html>
